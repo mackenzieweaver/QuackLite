@@ -31,7 +31,7 @@ var _was_on_floor: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	pass
-		
+
 
 #region Setup
 func _ready() -> void:
