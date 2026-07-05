@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5ffpqm7j6bft"]
+[gd_scene format=3 uid="uid://b5ffpqm7j6bft"]
 
 [ext_resource type="Script" uid="uid://b4c8ggnxsft6i" path="res://Scenes/Player/Player.gd" id="1_ft8w5"]
 [ext_resource type="AudioStream" uid="uid://bv0sbfn8iiyqi" path="res://Assets/Sounds/concrete-footsteps-6752.wav" id="2_4wape"]
@@ -26,39 +26,39 @@ albedo_color = Color(0.9019608, 0.21176471, 0.30588236, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_t26db"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk5o5"]
-albedo_color = Color(0.3372549, 0.38431373, 1, 1)
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fk5o5"]
 radius = 0.1
 height = 1.0
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=1540031818]
 collision_layer = 2
 collision_mask = 33
 script = ExtResource("1_ft8w5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1225277715]
 shape = SubResource("CapsuleShape3D_t26db")
 
-[node name="WalkingSound" type="AudioStreamPlayer3D" parent="."]
+[node name="WalkingSound" type="AudioStreamPlayer3D" parent="." unique_id=184118725]
 stream = ExtResource("2_4wape")
 
-[node name="LandingSound" type="AudioStreamPlayer3D" parent="."]
+[node name="LandingSound" type="AudioStreamPlayer3D" parent="." unique_id=1783540978]
 stream = SubResource("AudioStreamRandomizer_fk5o5")
 
-[node name="Pains" type="AudioStreamPlayer3D" parent="."]
+[node name="Pains" type="AudioStreamPlayer3D" parent="." unique_id=1536801189]
 stream = SubResource("AudioStreamRandomizer_825xp")
 
-[node name="HitBox" parent="." instance=ExtResource("13_epg6k")]
+[node name="HitBox" parent="." unique_id=1588074478 instance=ExtResource("13_epg6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.054563105, 0)
 collision_layer = 16
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="." unique_id=232865841]
 material_override = SubResource("StandardMaterial3D_t26db")
 mesh = SubResource("CapsuleMesh_t26db")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.37474072, -0.5866206)
-material_override = SubResource("StandardMaterial3D_fk5o5")
+[node name="Nose" type="MeshInstance3D" parent="." unique_id=303970305]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.5178156)
 mesh = SubResource("CapsuleMesh_fk5o5")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=195280473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+current = true
