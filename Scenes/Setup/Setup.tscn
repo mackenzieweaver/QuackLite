@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://de8gyhklyse2l"]
+[gd_scene format=3 uid="uid://de8gyhklyse2l"]
 
 [ext_resource type="Texture2D" uid="uid://faff1yhahtjk" path="res://Assets/Textures/PrototypeTextures/dark.png" id="1_lsk1p"]
 [ext_resource type="Texture2D" uid="uid://c4vp7eulu0e7t" path="res://Assets/Textures/PrototypeTextures/water.png" id="2_k50av"]
@@ -44,153 +44,153 @@ size = Vector3(6, 3, 6)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mosbd"]
 points = PackedVector3Array(-3, -1.5, -3, -3, 1.5, -3, 3, -1.5, -3, -3, -1.5, 3, -3, 1.5, 3, 3, 1.5, -3, 3, -1.5, 3, 3, 1.5, 3)
 
-[node name="Setup" type="Node"]
+[node name="Setup" type="Node" unique_id=622663423]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1419530082]
 environment = SubResource("Environment_mosbd")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=882961834]
 transform = Transform3D(0.4939419, -0.71571285, 0.49373725, 0, 0.56784374, 0.8231363, -0.8694949, -0.40658152, 0.28048182, 0, 0, 0)
 light_energy = 0.6
 shadow_enabled = true
 
-[node name="Scenery" type="Node" parent="."]
+[node name="Scenery" type="Node" parent="." unique_id=285438870]
 
-[node name="Ground" type="MeshInstance3D" parent="Scenery"]
+[node name="Ground" type="MeshInstance3D" parent="Scenery" unique_id=988684131]
 mesh = SubResource("BoxMesh_0ccqp")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Ground"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Ground" unique_id=84498609]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Ground/StaticBody3D" unique_id=429284242]
 shape = SubResource("ConvexPolygonShape3D_sw2t2")
 
-[node name="Block" type="MeshInstance3D" parent="Scenery"]
+[node name="Block" type="MeshInstance3D" parent="Scenery" unique_id=199749024]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5433521, 0)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block" unique_id=1208764]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block/StaticBody3D" unique_id=1493595624]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block2" type="MeshInstance3D" parent="Scenery"]
+[node name="Block2" type="MeshInstance3D" parent="Scenery" unique_id=885767121]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.904081, 1.5433521, -18.079512)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block2" unique_id=1565576224]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block2/StaticBody3D" unique_id=1558874825]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block3" type="MeshInstance3D" parent="Scenery"]
+[node name="Block3" type="MeshInstance3D" parent="Scenery" unique_id=1030050429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.206942, 1.5433521, -30.278793)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block3" unique_id=806461255]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block3/StaticBody3D" unique_id=835025440]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block4" type="MeshInstance3D" parent="Scenery"]
+[node name="Block4" type="MeshInstance3D" parent="Scenery" unique_id=2049841046]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.749533, 1.5433521, 22.467747)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block4" unique_id=1622630499]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block4/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block4/StaticBody3D" unique_id=1463303484]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block9" type="MeshInstance3D" parent="Scenery"]
+[node name="Block9" type="MeshInstance3D" parent="Scenery" unique_id=978397023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.749533, 4.3421555, 22.467747)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block9"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block9" unique_id=556349001]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block9/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block9/StaticBody3D" unique_id=1044402503]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block10" type="MeshInstance3D" parent="Scenery"]
+[node name="Block10" type="MeshInstance3D" parent="Scenery" unique_id=93102318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.749533, 7.1580963, 22.467747)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block10"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block10" unique_id=1998218597]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block10/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block10/StaticBody3D" unique_id=792109715]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block11" type="MeshInstance3D" parent="Scenery"]
+[node name="Block11" type="MeshInstance3D" parent="Scenery" unique_id=392414708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.749533, 10.158096, 22.467747)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block11"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block11" unique_id=1091745372]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block11/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block11/StaticBody3D" unique_id=827207503]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block5" type="MeshInstance3D" parent="Scenery"]
+[node name="Block5" type="MeshInstance3D" parent="Scenery" unique_id=1439163729]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.250467, 1.5433521, 27.467747)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block5"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block5" unique_id=1870442966]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block5/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block5/StaticBody3D" unique_id=651749657]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block6" type="MeshInstance3D" parent="Scenery"]
+[node name="Block6" type="MeshInstance3D" parent="Scenery" unique_id=718896615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2504673, 1.5433521, 32.467747)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block6"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block6" unique_id=1510732034]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block6/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block6/StaticBody3D" unique_id=1009846089]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block7" type="MeshInstance3D" parent="Scenery"]
+[node name="Block7" type="MeshInstance3D" parent="Scenery" unique_id=2034069769]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.250467, 1.5433521, 21.467747)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block7"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block7" unique_id=137874586]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block7/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block7/StaticBody3D" unique_id=283264992]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Block8" type="MeshInstance3D" parent="Scenery"]
+[node name="Block8" type="MeshInstance3D" parent="Scenery" unique_id=1648925780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 1.490674, 1)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block8"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Block8" unique_id=764981428]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block8/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Block8/StaticBody3D" unique_id=2099302500]
 shape = SubResource("ConvexPolygonShape3D_mosbd")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=666298902]
 transform = Transform3D(0.5962611, -0.53349507, 0.5998798, 0, 0.74724317, 0.6645507, -0.8027906, -0.39624575, 0.44555202, 10.372815, 10.413723, 22.725151)
 
-[node name="Player" parent="." instance=ExtResource("3_0ccqp")]
+[node name="Player" parent="." unique_id=101774324 instance=ExtResource("3_0ccqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8743734, 22.025028)
 
-[node name="ScreenShot" parent="." instance=ExtResource("4_sw2t2")]
+[node name="ScreenShot" parent="." unique_id=284483013 instance=ExtResource("4_sw2t2")]
