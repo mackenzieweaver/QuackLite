@@ -16,6 +16,7 @@ const GROUP_NAME: String = "Player"
 @onready var pains: AudioStreamPlayer3D = $Pains
 @onready var hit_box: HitBox = $HitBox
 @onready var camera: Camera3D = $Camera
+@onready var pistol: WeaponBase = $Camera/Pistol
 
 
 enum states {
@@ -25,6 +26,8 @@ enum states {
 	falling, # 3
 }
 
+
+var _weapon: WeaponBase
 var _mouse_delta: Vector2
 var _prev_state: states
 var _state := states.idle:
@@ -42,10 +45,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		_mouse_delta = event.relative * -1
 	if event is InputEventKey and event.as_text() == "Escape":
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event.is_action_pressed("shoot") and _weapon:
+		_weapon.fire()
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	_weapon = pistol
 
 
 func _enter_tree() -> void:

@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d35n0i4ax0ddn" path="res://Assets/Sounds/667297_jump_05.wav" id="4_ji083"]
 [ext_resource type="AudioStream" uid="uid://ddd8gdrxujwoo" path="res://Assets/Sounds/528732__landing3.wav" id="4_t26db"]
 [ext_resource type="AudioStream" uid="uid://cua2u8u30qvsb" path="res://Assets/Sounds/515623__PlayerHurt2.wav" id="6_t26db"]
+[ext_resource type="PackedScene" uid="uid://c68onqhn0ldxk" path="res://Scenes/Weapons/Pistol/Pistol.tscn" id="10_ji083"]
 [ext_resource type="PackedScene" uid="uid://cwptpjsaldb32" path="res://Scenes/Utils/HitBox/HitBox.tscn" id="13_epg6k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t26db"]
@@ -66,8 +67,12 @@ mesh = SubResource("CapsuleMesh_t26db")
 
 [node name="Nose" type="MeshInstance3D" parent="." unique_id=303970305]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.5178156)
+visible = false
 mesh = SubResource("CapsuleMesh_fk5o5")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=195280473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 current = true
+
+[node name="Pistol" parent="Camera" unique_id=1125874832 instance=ExtResource("10_ji083")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9663677, -0.79663664, -1.2278545)
