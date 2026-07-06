@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://djkgdkjhd0nvc"]
+[gd_scene format=3 uid="uid://djkgdkjhd0nvc"]
 
 [ext_resource type="Script" uid="uid://c5wlde7gr0vlf" path="res://Scenes/Weapons/WeaponBase.gd" id="1_vafft"]
+[ext_resource type="Script" uid="uid://bu68vo7slo1au" path="res://Scenes/Weapons/Behaviors/FireBehavior.gd" id="2_nait1"]
 
-[node name="WeaponBase" type="Node3D"]
+[sub_resource type="Resource" id="Resource_05kwe"]
+script = ExtResource("2_nait1")
+metadata/_custom_type_script = "uid://bu68vo7slo1au"
+
+[node name="WeaponBase" type="Node3D" unique_id=1125874832]
 script = ExtResource("1_vafft")
+fire_behavior = SubResource("Resource_05kwe")
