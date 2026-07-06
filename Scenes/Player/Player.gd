@@ -92,6 +92,9 @@ func move_xz(_delta: float):
 
 
 func play_sounds():
+	# Sounds only play for state changes
+	if _prev_state == _state: return
+	
 	if _prev_state != states.walking and _state == states.walking:
 		walking.play()
 	
