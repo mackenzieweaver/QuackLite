@@ -26,12 +26,8 @@ ObjectPool="*res://Globals/ObjectPool.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/window_width_override=1440
-window/size/window_height_override=810
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=576
+window/size/viewport_height=324
 
 [editor]
 

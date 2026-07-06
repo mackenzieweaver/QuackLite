@@ -4,6 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://bv0sbfn8iiyqi" path="res://Assets/Sounds/concrete-footsteps-6752.wav" id="2_4wape"]
 [ext_resource type="AudioStream" uid="uid://dhnynijj3jblg" path="res://Assets/Sounds/528732__landing1.wav" id="2_jmcll"]
 [ext_resource type="AudioStream" uid="uid://c7jd82oiu4jvw" path="res://Assets/Sounds/528732__landing2.wav" id="3_4wape"]
+[ext_resource type="AudioStream" uid="uid://c21e85a0plbce" path="res://Assets/Sounds/concrete-footsteps-stop.wav" id="3_825xp"]
+[ext_resource type="AudioStream" uid="uid://d35n0i4ax0ddn" path="res://Assets/Sounds/667297_jump_05.wav" id="4_ji083"]
 [ext_resource type="AudioStream" uid="uid://ddd8gdrxujwoo" path="res://Assets/Sounds/528732__landing3.wav" id="4_t26db"]
 [ext_resource type="AudioStream" uid="uid://cua2u8u30qvsb" path="res://Assets/Sounds/515623__PlayerHurt2.wav" id="6_t26db"]
 [ext_resource type="PackedScene" uid="uid://cwptpjsaldb32" path="res://Scenes/Utils/HitBox/HitBox.tscn" id="13_epg6k"]
@@ -38,11 +40,18 @@ script = ExtResource("1_ft8w5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1225277715]
 shape = SubResource("CapsuleShape3D_t26db")
 
-[node name="WalkingSound" type="AudioStreamPlayer3D" parent="." unique_id=184118725]
+[node name="Walking" type="AudioStreamPlayer3D" parent="." unique_id=184118725]
 stream = ExtResource("2_4wape")
 
-[node name="LandingSound" type="AudioStreamPlayer3D" parent="." unique_id=1783540978]
+[node name="Stopping" type="AudioStreamPlayer3D" parent="." unique_id=52430394]
+stream = ExtResource("3_825xp")
+
+[node name="Jumping" type="AudioStreamPlayer3D" parent="." unique_id=1490961308]
+stream = ExtResource("4_ji083")
+
+[node name="Landing" type="AudioStreamPlayer3D" parent="." unique_id=1783540978]
 stream = SubResource("AudioStreamRandomizer_fk5o5")
+max_db = -2.5
 
 [node name="Pains" type="AudioStreamPlayer3D" parent="." unique_id=1536801189]
 stream = SubResource("AudioStreamRandomizer_825xp")
