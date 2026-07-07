@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cjw51ppb4erjy"]
+
+[ext_resource type="Script" uid="uid://cqe68i5wgsgpk" path="res://Scenes/Weapons/Throwables/ThrowableBase.gd" id="1_5p2h1"]
+
+[node name="ThrowableBase" type="RigidBody3D" unique_id=24791151]
+collision_layer = 0
+collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5p2h1")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=670125800]
+
+[node name="LandEffect" type="AudioStreamPlayer3D" parent="." unique_id=106601256]
+
+[node name="ExplodeTimer" type="Timer" parent="." unique_id=218773843]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="DamageArea" type="Area3D" parent="." unique_id=140387958]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape3D" parent="DamageArea" unique_id=856938166]
+
+[node name="InstantExplode" type="Area3D" parent="." unique_id=952137344]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape3D" parent="InstantExplode" unique_id=1877603014]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ExplodeTimer" to="." method="_on_explode_timer_timeout"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="area_entered" from="InstantExplode" to="." method="_on_instant_explode_area_entered"]
