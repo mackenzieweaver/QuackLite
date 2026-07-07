@@ -17,6 +17,8 @@ const GROUP_NAME: String = "Player"
 @onready var hit_box: HitBox = $HitBox
 @onready var camera: Camera3D = $Camera
 @onready var pistol: WeaponBase = $Camera/Pistol
+@onready var rocket_launcher: WeaponBase = $Camera/RocketLauncher
+@onready var nail_gun: WeaponBase = $Camera/NailGun
 
 
 enum states {
@@ -45,13 +47,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		_mouse_delta = event.relative * -1
 	if event is InputEventKey and event.as_text() == "Escape":
 		get_tree().quit()
-	if Input.is_action_pressed("shoot", true) and _weapon:
+	if Input.is_action_pressed("shoot") and _weapon:
 		_weapon.fire()
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	_weapon = pistol
+	_weapon = nail_gun
 
 
 func _enter_tree() -> void:

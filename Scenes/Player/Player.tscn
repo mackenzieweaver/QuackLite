@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://cua2u8u30qvsb" path="res://Assets/Sounds/515623__PlayerHurt2.wav" id="6_t26db"]
 [ext_resource type="PackedScene" uid="uid://c68onqhn0ldxk" path="res://Scenes/Weapons/Pistol/Pistol.tscn" id="10_ji083"]
 [ext_resource type="PackedScene" uid="uid://dnk3cgbaiydva" path="res://Scenes/Player/PlayerUI.tscn" id="11_0kmp4"]
+[ext_resource type="PackedScene" uid="uid://cd2ettikjhpd6" path="res://Scenes/Weapons/RocketLauncher/RocketLauncher.tscn" id="11_i5acl"]
+[ext_resource type="PackedScene" uid="uid://c7ncsedr6ufp" path="res://Scenes/Weapons/NailGun/NailGun.tscn" id="12_epg6k"]
 [ext_resource type="PackedScene" uid="uid://cwptpjsaldb32" path="res://Scenes/Utils/HitBox/HitBox.tscn" id="13_epg6k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t26db"]
@@ -76,6 +78,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 current = true
 
 [node name="Pistol" parent="Camera" unique_id=1125874832 instance=ExtResource("10_ji083")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9663677, -0.79663664, -1.2278545)
+
+[node name="RocketLauncher" parent="Camera" unique_id=1251578740 instance=ExtResource("11_i5acl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9663677, -0.79663664, -1.2278545)
+visible = false
+
+[node name="NailGun" parent="Camera" unique_id=852148228 instance=ExtResource("12_epg6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9663677, -0.79663664, -1.2278545)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=701888053]
