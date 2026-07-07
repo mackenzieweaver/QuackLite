@@ -9,12 +9,12 @@ var _damage = 0
 var _velocity = Vector3.ZERO
 
 
-func init(damage: int, speed: float, dir: Vector3) -> void:
+func init(damage: int, speed: float, dir: Vector3):
 	_damage = damage
 	_velocity = dir.normalized() * speed
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float):
 	global_translate(_velocity * delta)
 
 
