@@ -47,7 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_mouse_delta = event.relative * -1
 	if event is InputEventKey and event.as_text() == "Escape":
 		get_tree().quit()
-	if Input.is_action_pressed("shoot") and _weapon:
+	if event.is_action_pressed("shoot") and _weapon:
 		_weapon.fire()
 
 
