@@ -19,6 +19,7 @@ const GROUP_NAME: String = "Player"
 @onready var pistol: WeaponBase = $Camera/Pistol
 @onready var rocket_launcher: WeaponBase = $Camera/RocketLauncher
 @onready var nail_gun: WeaponBase = $Camera/NailGun
+@onready var grenade_launcher: WeaponBase = $Camera/GrenadeLauncher
 
 
 enum states {
@@ -29,7 +30,9 @@ enum states {
 }
 
 
+var _weapons: Array
 var _weapon: WeaponBase
+var _weapon_index: int = 0
 var _mouse_delta: Vector2
 var _prev_state: states
 var _state := states.idle:
@@ -45,15 +48,28 @@ const max_rotation_angle = PI / 2
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_mouse_delta = event.relative * -1
+	
 	if event is InputEventKey and event.as_text() == "Escape":
-		get_tree().quit()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	if event.is_action_pressed("shoot") and _weapon:
 		_weapon.fire()
+	
+	if event.is_action_pressed("prev_weapon"):
+		_weapon_index -= 1
+		if _weapon_index < 0: _weapon_index = _weapons.size() - 1
+		switch_weapon()
+	
+	if event.is_action_pressed("next_weapon"):
+		_weapon_index += 1
+		if _weapon_index == _weapons.size(): _weapon_index = 0
+		switch_weapon()
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	_weapon = nail_gun
+	_weapons = [pistol, rocket_launcher, nail_gun, grenade_launcher]
+	switch_weapon()
 
 
 func _enter_tree() -> void:
@@ -123,7 +139,10 @@ func play_sounds():
 		jumping.play()
 
 
-
+func switch_weapon():
+	if _weapon: _weapon.hide()
+	_weapon = _weapons[_weapon_index]
+	_weapon.show()
 
 
 
