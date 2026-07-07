@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ddd8gdrxujwoo" path="res://Assets/Sounds/528732__landing3.wav" id="4_t26db"]
 [ext_resource type="AudioStream" uid="uid://cua2u8u30qvsb" path="res://Assets/Sounds/515623__PlayerHurt2.wav" id="6_t26db"]
 [ext_resource type="PackedScene" uid="uid://c68onqhn0ldxk" path="res://Scenes/Weapons/Pistol/Pistol.tscn" id="10_ji083"]
+[ext_resource type="PackedScene" uid="uid://dnk3cgbaiydva" path="res://Scenes/Player/PlayerUI.tscn" id="11_0kmp4"]
 [ext_resource type="PackedScene" uid="uid://cwptpjsaldb32" path="res://Scenes/Utils/HitBox/HitBox.tscn" id="13_epg6k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t26db"]
@@ -76,3 +77,7 @@ current = true
 
 [node name="Pistol" parent="Camera" unique_id=1125874832 instance=ExtResource("10_ji083")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9663677, -0.79663664, -1.2278545)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=701888053]
+
+[node name="PlayerUI" parent="CanvasLayer" unique_id=706996555 instance=ExtResource("11_0kmp4")]

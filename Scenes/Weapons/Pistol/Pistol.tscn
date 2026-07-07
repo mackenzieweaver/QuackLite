@@ -137,10 +137,13 @@ fire_behavior = SubResource("Resource_kaw8x")
 [node name="Muzzle" parent="." index="0" unique_id=1881138269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04634483, -0.20367342)
 
-[node name="FireSound" parent="." index="1" unique_id=1786967272]
-stream = ExtResource("3_wppjw")
+[node name="MuzzleFlash" parent="." index="1" unique_id=2124914162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04634483, -0.20367342)
 
 [node name="Mesh" type="MeshInstance3D" parent="." index="2" unique_id=1072130537]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_l1fn0")
 skeleton = NodePath("")
+
+[node name="FireSound" parent="." index="3" unique_id=1786967272]
+stream = ExtResource("3_wppjw")

@@ -20,10 +20,10 @@ const GROUP_NAME: String = "Player"
 
 
 enum states {
-	idle,    # 0
-	walking, # 1
-	jumping, # 2
-	falling, # 3
+	idle,     # 0
+	walking,  # 1
+	jumping,  # 2
+	falling,  # 3
 }
 
 
@@ -44,8 +44,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_mouse_delta = event.relative * -1
 	if event is InputEventKey and event.as_text() == "Escape":
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if event.is_action_pressed("shoot") and _weapon:
+		get_tree().quit()
+	if Input.is_action_pressed("shoot", true) and _weapon:
 		_weapon.fire()
 
 

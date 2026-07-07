@@ -19,7 +19,7 @@ func fire(_parent: Node3D, _transform: Transform3D):
 	var hit: Dictionary = space.intersect_ray(ray_cast_parameters)
 	if hit:
 		var collider: CollisionObject3D = hit.collider
-		print("hit: ", collider.name, hit.position)
+		SignalHub.emit_on_hitscan_hit()
 
 
 

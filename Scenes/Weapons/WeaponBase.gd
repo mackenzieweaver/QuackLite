@@ -16,11 +16,13 @@ enum WeaponType {
 
 @onready var muzzle: Node3D = $Muzzle
 @onready var fire_sound: AudioStreamPlayer3D = $FireSound
+@onready var muzzle_flash: GPUParticles3D = $MuzzleFlash
 
 
 func fire():
 	fire_sound.play()
 	fire_behavior.fire(self, muzzle.global_transform)
+	muzzle_flash.restart()
 
 
 
