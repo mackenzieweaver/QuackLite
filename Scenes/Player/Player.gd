@@ -9,6 +9,7 @@ const GROUP_NAME: String = "Player"
 @export var sensitivity: float = 0.0012
 @export var gravity: float = -30.0
 
+
 @onready var walking: AudioStreamPlayer3D = $Walking
 @onready var stopping: AudioStreamPlayer3D = $Stopping
 @onready var jumping: AudioStreamPlayer3D = $Jumping
@@ -39,7 +40,6 @@ var _state := states.idle:
 	set(value):
 		_prev_state = _state
 		_state = value
-		#print(_prev_state, _state)
 
 
 const max_rotation_angle = PI / 2

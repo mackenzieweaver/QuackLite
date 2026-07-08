@@ -1,9 +1,13 @@
 extends Node
 
 
-var c= 0
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("screenshot"):
-		var image = get_viewport().get_texture().get_image()
-		image.save_png("user://fps%d.png" % c)
-		c+=1
+const ROCKET_IMPACT = preload("res://Scenes/Weapons/RocketImpact.tscn")
+
+
+@onready var container: Node3D = $Container
+
+
+var _scene_pool: ScenePool
+
+func _ready() -> void:
+	_scene_pool = ScenePool.new(4, ROCKET_IMPACT, container, "Impact")

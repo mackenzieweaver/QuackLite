@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cx2cp3r06dcd4"]
+
+[ext_resource type="Texture2D" uid="uid://bed4mpd0g3bty" path="res://Assets/Textures/Dot.png" id="1_53pkb"]
+[ext_resource type="Script" uid="uid://y101kq457g6g" path="res://Scenes/Weapons/RocketImpact.gd" id="2_yo05u"]
+
+[sub_resource type="Curve" id="Curve_yo05u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.74103594, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_v0fl5"]
+curve = SubResource("Curve_yo05u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mqaig"]
+radial_velocity_min = 0.99997765
+radial_velocity_max = 1.9999776
+radial_velocity_curve = SubResource("CurveTexture_v0fl5")
+gravity = Vector3(0, -2, 0)
+scale_min = 0.39999998
+scale_max = 0.79999995
+color = Color(1.4400147, 0.23550045, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16ivo"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_53pkb")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_egvfg"]
+material = SubResource("StandardMaterial3D_16ivo")
+
+[node name="RocketImpact" type="GPUParticles3D" unique_id=1891955627]
+emitting = false
+amount = 64
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_mqaig")
+draw_pass_1 = SubResource("QuadMesh_egvfg")
+script = ExtResource("2_yo05u")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
