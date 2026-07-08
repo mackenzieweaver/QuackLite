@@ -35,7 +35,15 @@ func add_new_scene():
 	return scene
 
 
-
+func activate_next_scene(pos: Vector3):
+	for i in range(_scene_list.size()):
+		var scene_from_list = _scene_list[i]
+		if scene_from_list.pool_is_ready():
+			scene_from_list.pool_activate(pos)
+			return
+	
+	var new_scene: Node3D = add_new_scene()
+	if new_scene: new_scene.pool_activate(pos)
 
 
 

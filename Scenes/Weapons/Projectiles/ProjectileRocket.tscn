@@ -173,6 +173,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_kjdpc")
 
 [node name="ProjectileRocket" unique_id=807251885 instance=ExtResource("1_yepxp")]
+impact_pool_object = 2
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=27418377]
 shape = SubResource("ConcavePolygonShape3D_yepxp")

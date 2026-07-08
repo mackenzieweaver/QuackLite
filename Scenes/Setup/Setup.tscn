@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://de8gyhklyse2l"]
 
 [ext_resource type="Texture2D" uid="uid://faff1yhahtjk" path="res://Assets/Textures/PrototypeTextures/dark.png" id="1_lsk1p"]
-[ext_resource type="Script" uid="uid://b45mdyfi01ulu" path="res://Scenes/Setup/Setup.gd" id="1_mosbd"]
 [ext_resource type="Texture2D" uid="uid://c4vp7eulu0e7t" path="res://Assets/Textures/PrototypeTextures/water.png" id="2_k50av"]
 [ext_resource type="PackedScene" uid="uid://b5ffpqm7j6bft" path="res://Scenes/Player/Player.tscn" id="3_0ccqp"]
 [ext_resource type="PackedScene" uid="uid://dn4dq4s0cep0x" path="res://Scenes/Utils/ScreenShot/ScreenShot.tscn" id="4_sw2t2"]
+[ext_resource type="PackedScene" uid="uid://u4w1u1xywbf5" path="res://Scenes/PoolContainer.tscn" id="6_14hjg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ccqp"]
 sky_top_color = Color(0.2617225, 0.31775224, 0.39240915, 1)
@@ -46,7 +46,6 @@ size = Vector3(6, 3, 6)
 points = PackedVector3Array(-3, -1.5, -3, -3, 1.5, -3, 3, -1.5, -3, -3, -1.5, 3, -3, 1.5, 3, 3, 1.5, -3, 3, -1.5, 3, 3, 1.5, 3)
 
 [node name="Setup" type="Node" unique_id=622663423]
-script = ExtResource("1_mosbd")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1419530082]
 environment = SubResource("Environment_mosbd")
@@ -197,4 +196,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8743734, 22.025028)
 
 [node name="ScreenShot" parent="." unique_id=284483013 instance=ExtResource("4_sw2t2")]
 
-[node name="Container" type="Node3D" parent="." unique_id=1051612789]
+[node name="PoolContainer" parent="." unique_id=662784140 instance=ExtResource("6_14hjg")]

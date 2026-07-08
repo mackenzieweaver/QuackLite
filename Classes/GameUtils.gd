@@ -11,7 +11,8 @@ enum PoolObjectNames {
 }
 
 
-static func ValidPoolObject(n: PoolObjectNames): return n != PoolObjectNames.None
+static func ValidPoolObject(n: PoolObjectNames):
+	return n != PoolObjectNames.None
 
 
 static func vanish_rigidbody(rb: RigidBody3D) -> void:

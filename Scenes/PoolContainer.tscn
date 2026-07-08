@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://u4w1u1xywbf5"]
+
+[ext_resource type="Script" uid="uid://brsoqhgkimmgu" path="res://Scenes/PoolContainer.gd" id="1_vwmjg"]
+
+[node name="PoolContainer" type="Node3D" unique_id=662784140]
+script = ExtResource("1_vwmjg")
