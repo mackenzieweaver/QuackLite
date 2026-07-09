@@ -31,7 +31,7 @@ enum states {
 }
 
 
-var _weapons: Array
+var _weapons: Array[WeaponBase]
 var _weapon: WeaponBase
 var _weapon_index: int = 0
 var _mouse_delta: Vector2
@@ -58,18 +58,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("prev_weapon"):
 		_weapon_index -= 1
 		if _weapon_index < 0: _weapon_index = _weapons.size() - 1
-		switch_weapon()
+		set_weapon()
 	
 	if event.is_action_pressed("next_weapon"):
 		_weapon_index += 1
 		if _weapon_index == _weapons.size(): _weapon_index = 0
-		switch_weapon()
+		set_weapon()
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_weapons = [pistol, rocket_launcher, nail_gun, grenade_launcher]
-	switch_weapon()
+	set_weapon()
 
 
 func _enter_tree() -> void:
@@ -139,7 +139,7 @@ func play_sounds():
 		jumping.play()
 
 
-func switch_weapon():
+func set_weapon():
 	if _weapon: _weapon.hide()
 	_weapon = _weapons[_weapon_index]
 	_weapon.show()

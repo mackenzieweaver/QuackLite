@@ -24,11 +24,6 @@ config/icon="res://icon.svg"
 SignalHub="*res://Globals/SignalHub.gd"
 ObjectPool="*res://Globals/ObjectPool.gd"
 
-[display]
-
-window/size/viewport_width=576
-window/size/viewport_height=324
-
 [editor]
 
 naming/scene_name_casing=1

@@ -13,6 +13,7 @@ func pool_is_ready():
 
 
 func pool_activate(pos: Vector3):
+	show()
 	global_position = pos
 	_done = false
 	particles.restart()
@@ -20,4 +21,5 @@ func pool_activate(pos: Vector3):
 
 
 func _on_gpu_particles_3d_finished() -> void:
+	hide()
 	_done = true

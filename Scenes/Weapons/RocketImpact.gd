@@ -9,10 +9,12 @@ func pool_is_ready():
 
 
 func pool_activate(pos: Vector3):
+	show()
 	global_position = pos
 	_done = false
 	restart()
 
 
 func _on_finished() -> void:
+	hide()
 	_done = true

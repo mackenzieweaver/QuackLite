@@ -21,6 +21,7 @@ func _init(num: int, scn: PackedScene, cont: Node3D, prefix: String):
 
 func add_new_scene():
 	var scene = _packed_scene.instantiate()
+	scene.hide()
 	
 	if !scene.has_method(METHOD_IS_READY) or !scene.has_method(METHOD_POOL_ACTIVATE):
 		push_error("%s: Missing a pool method" % scene.name)
