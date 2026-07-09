@@ -110,6 +110,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_njy8k")
 
 [node name="Grenade" unique_id=24791151 instance=ExtResource("1_fentq")]
+impact_pool_object = 1
 
 [node name="CollisionShape" parent="." index="0" unique_id=670125800]
 shape = SubResource("CapsuleShape3D_fentq")

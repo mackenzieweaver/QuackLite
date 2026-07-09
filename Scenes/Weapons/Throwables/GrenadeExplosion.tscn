@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://s12xlo3unua4"]
+
+[ext_resource type="Script" uid="uid://b4sk3cpidabgq" path="res://Scenes/Weapons/Throwables/GrenadeExplosion.gd" id="1_ciu1j"]
+[ext_resource type="AudioStream" uid="uid://brgy6smxremcm" path="res://Assets/Sounds/172334__knova__grenade_knova.wav" id="2_ciu1j"]
+
+[sub_resource type="Gradient" id="Gradient_ciu1j"]
+offsets = PackedFloat32Array(0.18222222, 0.4311111)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kq2v5"]
+gradient = SubResource("Gradient_ciu1j")
+
+[sub_resource type="Curve" id="Curve_mf86t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4buwx"]
+curve = SubResource("Curve_mf86t")
+
+[sub_resource type="Curve" id="Curve_3weae"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2749004, 0.17652023), 0.0, 0.0, 0, 0, Vector2(0.7529881, 4), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4vdfm"]
+curve = SubResource("Curve_3weae")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uqi4w"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+orbit_velocity_min = 1.0000001
+orbit_velocity_max = 2.0000002
+radial_velocity_min = 1.9999776
+radial_velocity_max = 3.9999776
+gravity = Vector3(0, 1, 0)
+radial_accel_min = 4.9999976
+radial_accel_max = 7.9999976
+radial_accel_curve = SubResource("CurveTexture_4buwx")
+scale_min = 0.39999998
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_4vdfm")
+color = Color(1, 0.86729896, 0, 1)
+color_ramp = SubResource("GradientTexture1D_kq2v5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7ww5"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_xq2ri"]
+material = SubResource("StandardMaterial3D_e7ww5")
+
+[node name="GrenadeExplosion" type="Node3D" unique_id=1048811459]
+script = ExtResource("1_ciu1j")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=353890301]
+emitting = false
+amount = 32
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.8
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_uqi4w")
+draw_pass_1 = SubResource("SphereMesh_xq2ri")
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="." unique_id=520426873]
+stream = ExtResource("2_ciu1j")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]
