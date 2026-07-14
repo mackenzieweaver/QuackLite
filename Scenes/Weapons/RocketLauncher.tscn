@@ -9,6 +9,7 @@
 script = ExtResource("3_c2kr8")
 projectile_scene = ExtResource("2_jh4bc")
 speed = 50.0
+damage = 200
 damage_collision_mask = 193
 metadata/_custom_type_script = "uid://dg50n41nsuu1m"
 
@@ -137,6 +138,9 @@ shadow_mesh = SubResource("ArrayMesh_2rpuv")
 [node name="RocketLauncher" unique_id=1125874832 instance=ExtResource("1_ve207")]
 weapon_type = 2
 fire_behavior = SubResource("Resource_r80d0")
+fire_rate_msec = 2000
+start_ammo = 5
+max_ammo = 15
 
 [node name="Muzzle" parent="." index="0" unique_id=1881138269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0948005, -0.3981619)

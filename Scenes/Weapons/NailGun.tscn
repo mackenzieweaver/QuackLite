@@ -9,6 +9,7 @@
 script = ExtResource("3_5crcg")
 projectile_scene = ExtResource("2_nn8xj")
 speed = 60.0
+damage = 10
 damage_collision_mask = 65
 metadata/_custom_type_script = "uid://dg50n41nsuu1m"
 
@@ -137,6 +138,9 @@ shadow_mesh = SubResource("ArrayMesh_4qlwv")
 [node name="NailGun" unique_id=1125874832 instance=ExtResource("1_iksrn")]
 weapon_type = 3
 fire_behavior = SubResource("Resource_mox6h")
+fire_rate_msec = 100
+start_ammo = 50
+max_ammo = 200
 
 [node name="Muzzle" parent="." index="0" unique_id=1881138269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25781885)

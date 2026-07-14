@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://b5yk34ek0q2ri" path="res://Scenes/Weapons/Behaviors/HitscanFire.gd" id="2_iu145"]
 [ext_resource type="AudioStream" uid="uid://bate0ekelt6vh" path="res://Assets/Sounds/128300__xenonn__layered-gunshot-4.wav" id="3_wppjw"]
 
-[sub_resource type="Resource" id="Resource_kaw8x"]
+[sub_resource type="Resource" id="Resource_si21x"]
 script = ExtResource("2_iu145")
-damage_collision_mask = 65
+damage = 34
 metadata/_custom_type_script = "uid://b5yk34ek0q2ri"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6geb"]
@@ -132,7 +132,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f7am5")
 
 [node name="Pistol" unique_id=1125874832 instance=ExtResource("1_sk53q")]
-fire_behavior = SubResource("Resource_kaw8x")
+fire_behavior = SubResource("Resource_si21x")
+fire_rate_msec = 250
 
 [node name="Muzzle" parent="." index="0" unique_id=1881138269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04634483, -0.20367342)

@@ -68,7 +68,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	_weapons = [pistol, rocket_launcher, nail_gun, grenade_launcher]
+	_weapons = [
+		pistol,
+		rocket_launcher,
+		nail_gun,
+		grenade_launcher,
+	]
 	set_weapon()
 
 
@@ -140,9 +145,9 @@ func play_sounds():
 
 
 func set_weapon():
-	if _weapon: _weapon.hide()
+	if _weapon: _weapon.switch_out()
 	_weapon = _weapons[_weapon_index]
-	_weapon.show()
+	_weapon.switch_in()
 
 
 

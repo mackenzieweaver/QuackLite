@@ -43,3 +43,5 @@ process_material = SubResource("ParticleProcessMaterial_qrkff")
 draw_pass_1 = SubResource("QuadMesh_tpgi6")
 
 [node name="FireSound" type="AudioStreamPlayer3D" parent="." unique_id=1786967272]
+
+[node name="ActivateSound" type="AudioStreamPlayer3D" parent="." unique_id=1083879505]

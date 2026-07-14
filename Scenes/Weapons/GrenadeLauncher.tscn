@@ -10,6 +10,7 @@ script = ExtResource("2_ix7m4")
 throwable_scene = ExtResource("3_mknor")
 instant_explode_collision_mask = 208
 physics_collision_mask = 1
+damage = 100
 damage_collision_mask = 208
 metadata/_custom_type_script = "uid://tfiybp3i78c0"
 
@@ -136,6 +137,9 @@ shadow_mesh = SubResource("ArrayMesh_r5mrc")
 [node name="GrenadeLauncher" unique_id=1125874832 instance=ExtResource("1_e3hbu")]
 weapon_type = 0
 fire_behavior = SubResource("Resource_8u70o")
+fire_rate_msec = 1000
+start_ammo = 10
+max_ammo = 25
 
 [node name="Muzzle" parent="." index="0" unique_id=1881138269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12230438, -0.41075802)
