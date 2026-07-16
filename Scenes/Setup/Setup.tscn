@@ -192,7 +192,7 @@ shape = SubResource("ConvexPolygonShape3D_mosbd")
 transform = Transform3D(0.5962611, -0.53349507, 0.5998798, 0, 0.74724317, 0.6645507, -0.8027906, -0.39624575, 0.44555202, 10.372815, 10.413723, 22.725151)
 
 [node name="Player" parent="." unique_id=101774324 instance=ExtResource("3_0ccqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8743734, 22.025028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 22.025)
 
 [node name="ScreenShot" parent="." unique_id=284483013 instance=ExtResource("4_sw2t2")]
 
