@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://cdc5ui3ycltkj"]
+
+[ext_resource type="PackedScene" uid="uid://cwptpjsaldb32" path="res://Scenes/Utils/HitBox/HitBox.tscn" id="1_p6c21"]
+[ext_resource type="Script" uid="uid://brl2lup6havmv" path="res://Scenes/Enemies/EnemyBase.gd" id="1_srcxp"]
+[ext_resource type="PackedScene" uid="uid://dyw2pkoa1fmpb" path="res://Scenes/Utils/PlayerRef/PlayerRef.tscn" id="2_srcxp"]
+
+[sub_resource type="Animation" id="Animation_p6c21"]
+resource_name = "death"
+
+[sub_resource type="Animation" id="Animation_srcxp"]
+resource_name = "hurt"
+
+[sub_resource type="Animation" id="Animation_2a3kf"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_m1s7c"]
+resource_name = "melee"
+
+[sub_resource type="Animation" id="Animation_aahyb"]
+resource_name = "shoot"
+
+[sub_resource type="Animation" id="Animation_tgb06"]
+resource_name = "throw"
+
+[sub_resource type="Animation" id="Animation_fj512"]
+resource_name = "walking"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhgc7"]
+_data = {
+&"Death": SubResource("Animation_p6c21"),
+&"Hurt": SubResource("Animation_srcxp"),
+&"Idle": SubResource("Animation_2a3kf"),
+&"Melee": SubResource("Animation_m1s7c"),
+&"Shoot": SubResource("Animation_aahyb"),
+&"Throw": SubResource("Animation_tgb06"),
+&"Walking": SubResource("Animation_fj512")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p6c21"]
+animation = &"Melee"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_srcxp"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2a3kf"]
+graph_offset = Vector2(-117, -177)
+nodes/output/position = Vector2(820, 240)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_p6c21")
+nodes/Animation/position = Vector2(360, 260)
+nodes/Speed/node = SubResource("AnimationNodeTimeScale_srcxp")
+nodes/Speed/position = Vector2(580, 220)
+node_connections = [&"output", 0, &"Speed", &"Speed", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m1s7c"]
+animation = &"Shoot"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_aahyb"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tgb06"]
+graph_offset = Vector2(-74, -212)
+nodes/output/position = Vector2(1000, 260)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_m1s7c")
+nodes/Animation/position = Vector2(360, 220)
+nodes/Speed/node = SubResource("AnimationNodeTimeScale_aahyb")
+nodes/Speed/position = Vector2(660, 200)
+node_connections = [&"output", 0, &"Speed", &"Speed", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fj512"]
+animation = &"Throw"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_uhgc7"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4ni7a"]
+graph_offset = Vector2(-122, -227)
+nodes/output/position = Vector2(860, 160)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_fj512")
+nodes/Animation/position = Vector2(400, 180)
+nodes/Speed/node = SubResource("AnimationNodeTimeScale_uhgc7")
+nodes/Speed/position = Vector2(620, 140)
+node_connections = [&"output", 0, &"Speed", &"Speed", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lv37s"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_obdxo"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_imyi4"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5jwg1"]
+states/End/position = Vector2(803, 342)
+states/Melee/node = SubResource("AnimationNodeBlendTree_2a3kf")
+states/Melee/position = Vector2(579, 455)
+states/Shoot/node = SubResource("AnimationNodeBlendTree_tgb06")
+states/Shoot/position = Vector2(579, 337)
+states/Start/position = Vector2(348, 337)
+states/Throw/node = SubResource("AnimationNodeBlendTree_4ni7a")
+states/Throw/position = Vector2(579, 245)
+transitions = ["Start", "Throw", SubResource("AnimationNodeStateMachineTransition_lv37s"), "Start", "Shoot", SubResource("AnimationNodeStateMachineTransition_obdxo"), "Start", "Melee", SubResource("AnimationNodeStateMachineTransition_imyi4")]
+graph_offset = Vector2(46, 185)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t8mk1"]
+animation = &"Death"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_bo7sv"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_sja6u"]
+graph_offset = Vector2(-557, -226)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_t8mk1")
+nodes/Animation/position = Vector2(-160, 120)
+nodes/Speed/node = SubResource("AnimationNodeTimeScale_bo7sv")
+nodes/Speed/position = Vector2(60, 140)
+node_connections = [&"output", 0, &"Speed", &"Speed", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ni7a"]
+animation = &"Hurt"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_lv37s"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_obdxo"]
+graph_offset = Vector2(-67, -124)
+nodes/output/position = Vector2(1020, 360)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_4ni7a")
+nodes/Animation/position = Vector2(400, 320)
+nodes/Speed/node = SubResource("AnimationNodeTimeScale_lv37s")
+nodes/Speed/position = Vector2(700, 300)
+node_connections = [&"output", 0, &"Speed", &"Speed", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_imyi4"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5jwg1"]
+animation = &"Walking"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_t8mk1"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bo7sv"]
+graph_offset = Vector2(-579.3046, -278.05518)
+nodes/Speed/node = SubResource("AnimationNodeTimeScale_t8mk1")
+nodes/Speed/position = Vector2(0, 100)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_5jwg1")
+nodes/Animation/position = Vector2(-309, 116)
+node_connections = [&"output", 0, &"Speed", &"Speed", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kxeub"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_st35r"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ly7q"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebyh8"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4seab"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hj68u"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6xajl"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3eg6"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ouk02"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p6c21"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sja6u"]
+states/Attack/node = SubResource("AnimationNodeStateMachine_5jwg1")
+states/Attack/position = Vector2(559, 382)
+states/Death/node = SubResource("AnimationNodeBlendTree_sja6u")
+states/Death/position = Vector2(381, 650)
+states/End/position = Vector2(764, 382)
+states/Hurt/node = SubResource("AnimationNodeBlendTree_obdxo")
+states/Hurt/position = Vector2(381, 538)
+states/Idle/node = SubResource("AnimationNodeAnimation_imyi4")
+states/Idle/position = Vector2(182, 392)
+states/Start/position = Vector2(4, 392)
+states/Walking/node = SubResource("AnimationNodeBlendTree_bo7sv")
+states/Walking/position = Vector2(381, 245)
+transitions = ["Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_kxeub"), "Attack", "Hurt", SubResource("AnimationNodeStateMachineTransition_st35r"), "Walking", "Attack", SubResource("AnimationNodeStateMachineTransition_8ly7q"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_ebyh8"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_4seab"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_hj68u"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_6xajl"), "Attack", "Walking", SubResource("AnimationNodeStateMachineTransition_d3eg6"), "Walking", "Hurt", SubResource("AnimationNodeStateMachineTransition_ouk02"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_p6c21")]
+graph_offset = Vector2(-148, 254)
+
+[node name="EnemyBase" type="CharacterBody3D" unique_id=2005262230]
+collision_layer = 32
+collision_mask = 3
+script = ExtResource("1_srcxp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=268638241]
+
+[node name="HitBox" parent="." unique_id=907411054 instance=ExtResource("1_p6c21")]
+collision_layer = 64
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1477999145]
+
+[node name="PlayerRef" parent="." unique_id=1829355087 instance=ExtResource("2_srcxp")]
+
+[node name="AccumulatedDamageTimer" type="Timer" parent="." unique_id=392644949]
+wait_time = 3.0
+autostart = true
+
+[node name="GruntTimer" type="Timer" parent="." unique_id=1177485561]
+wait_time = 3.0
+
+[node name="PlayerDetect" type="RayCast3D" parent="." unique_id=741012293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, -200)
+collision_mask = 3
+debug_shape_custom_color = Color(0, 0.6848154, 1, 1)
+
+[node name="NavAgent" type="NavigationAgent3D" parent="." unique_id=239693241]
+path_height_offset = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=102578056]
+libraries/ = SubResource("AnimationLibrary_uhgc7")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1822004935]
+tree_root = SubResource("AnimationNodeStateMachine_sja6u")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Attack/Melee/Speed/scale = 0.0
+parameters/Attack/Shoot/Speed/scale = 1.0
+parameters/Attack/Throw/Speed/scale = 1.0
+parameters/Death/Speed/scale = 1.0
+parameters/Hurt/Speed/scale = 1.0
+parameters/Walking/Speed/scale = 1.0

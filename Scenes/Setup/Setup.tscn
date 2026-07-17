@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b5ffpqm7j6bft" path="res://Scenes/Player/Player.tscn" id="3_0ccqp"]
 [ext_resource type="PackedScene" uid="uid://dn4dq4s0cep0x" path="res://Scenes/Utils/ScreenShot/ScreenShot.tscn" id="4_sw2t2"]
 [ext_resource type="PackedScene" uid="uid://u4w1u1xywbf5" path="res://Scenes/PoolContainer.tscn" id="6_14hjg"]
+[ext_resource type="PackedScene" uid="uid://bbckcr2ildjpp" path="res://Scenes/Enemies/Grunt.tscn" id="6_73shc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ccqp"]
 sky_top_color = Color(0.2617225, 0.31775224, 0.39240915, 1)
@@ -197,3 +198,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 22.025)
 [node name="ScreenShot" parent="." unique_id=284483013 instance=ExtResource("4_sw2t2")]
 
 [node name="PoolContainer" parent="." unique_id=662784140 instance=ExtResource("6_14hjg")]
+
+[node name="Grunt" parent="." unique_id=2005262230 instance=ExtResource("6_73shc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 14.485233)
+script = null
