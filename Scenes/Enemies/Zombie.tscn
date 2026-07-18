@@ -2098,6 +2098,7 @@ tracks/57/keys = PackedFloat32Array(0, 1, 0.3548717, -0.033817507, -0.004323737,
 [sub_resource type="Animation" id="Animation_pskt5"]
 resource_name = "Walking"
 length = 1.05
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -2863,27 +2864,37 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="Zombie" unique_id=2005262230 instance=ExtResource("1_gyg6r")]
+speed = 0.75
+walk_speed_scale = 0.75
+throw_speed_scale = 0.75
+shoot_speed_scale = 0.75
+melee_speed_scale = 0.75
+hurt_speed_scale = 10.0
 death_sound = ExtResource("2_k2x5o")
 grunt_sound = ExtResource("2_k2x5o")
 pain_sound = ExtResource("3_gyg6r")
 
-[node name="CollisionShape3D" parent="." index="0" unique_id=268638241]
+[node name="EnemyStateMachine" parent="." index="0" unique_id=1790398763 node_paths=PackedStringArray("states")]
+states = {
+"hurt": NodePath("EnemyStateHurt"),
+"idle": NodePath("EnemyStateIdle"),
+"walking": NodePath("EnemyStateWalking")
+}
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=268638241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0384831, -0.008586049)
 shape = SubResource("CapsuleShape3D_gyg6r")
 
-[node name="HitBox" parent="." index="1" unique_id=907411054]
+[node name="HitBox" parent="." index="2" unique_id=907411054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99912643, -0.0029690266)
 collision_layer = 192
 shape_resource = SubResource("CapsuleShape3D_k2x5o")
 
-[node name="PlayerDetect" parent="." index="6" unique_id=741012293]
+[node name="PlayerDetect" parent="." index="7" unique_id=741012293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8857392, 0)
 
-[node name="AnimationPlayer" parent="." index="8" unique_id=102578056]
+[node name="AnimationPlayer" parent="." index="9" unique_id=102578056]
 libraries/ = SubResource("AnimationLibrary_qmk0a")
-
-[node name="AnimationTree" parent="." index="9" unique_id=1822004935]
-anim_player = NodePath("../AnimationPlayer2")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="10" unique_id=1017069091]
 libraries/ = SubResource("AnimationLibrary_pv7rq")
@@ -3352,3 +3363,6 @@ skin = SubResource("Skin_54d71")
 [node name="ZombieGirl_Top" type="MeshInstance3D" parent="Armature/Skeleton3D" index="2" unique_id=1722457213]
 mesh = SubResource("ArrayMesh_oo71x")
 skin = SubResource("Skin_54d71")
+
+[node name="AnimationTree" parent="." index="12" unique_id=1822004935]
+anim_player = NodePath("../AnimationPlayer2")

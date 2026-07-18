@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ck84dbnvx0qnl"]
+
+[ext_resource type="PackedScene" uid="uid://bcxsqtccaava6" path="res://Scenes/Enemies/FSM/EnemyState.tscn" id="1_043k2"]
+[ext_resource type="Script" uid="uid://d0hr5y4pfdnrj" path="res://Scenes/Enemies/FSM/EnemyStateWalking.gd" id="2_03quh"]
+
+[node name="EnemyStateWalking" unique_id=615545462 instance=ExtResource("1_043k2")]
+script = ExtResource("2_03quh")

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ytavedy5s5ok"]
+
+[ext_resource type="Script" uid="uid://xkyp274hx04o" path="res://Scenes/Enemies/FSM/EnemyStateIdle.gd" id="1_dvixw"]
+
+[node name="EnemyStateIdle" type="Node" unique_id=395167746]
+script = ExtResource("1_dvixw")
+metadata/_custom_type_script = "uid://c70jmty310wx5"

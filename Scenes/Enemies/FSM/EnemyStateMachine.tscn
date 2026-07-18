@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cp6vhyrcmqmbm"]
+
+[ext_resource type="Script" uid="uid://d64guq3iojas" path="res://Scenes/Enemies/FSM/EnemyStateMachine.gd" id="1_wlmt1"]
+
+[node name="EnemyStateMachine" type="Node" unique_id=1790398763]
+script = ExtResource("1_wlmt1")

@@ -16,6 +16,7 @@ const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/scale"
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var tree_sm: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var tree_sm_attack: AnimationNodeStateMachinePlayback = animation_tree["parameters/Attack/playback"]
+@onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
 
 
 @onready var hit_box: HitBox = $HitBox
@@ -54,7 +55,7 @@ var accumulated_damage: int = 0:
 
 
 func _ready() -> void:
-	tree_sm.travel("Idle")
+	enemy_state_machine.ready()
 	animation_tree[WALKING_SPEED_SCALE_PARAM] = walk_speed_scale
 	animation_tree[THROW_SPEED_SCALE_PARAM] = throw_speed_scale
 	animation_tree[MELEE_SPEED_SCALE_PARAM] = melee_speed_scale
