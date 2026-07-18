@@ -64,6 +64,15 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	player_detect.look_at(player_ref.player_pos)
+	
+	if player_detect.is_colliding():
+		if player_detect.get_collider() is Player:
+			# Dont look up/down just straight
+			var x = player_ref.player_x
+			var z = player_ref.player_z
+			look_at(Vector3(x, 0, z))
+	
+	move_and_slide()
 
 
 func _on_hit_box_died() -> void:
