@@ -200,5 +200,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 22.025)
 [node name="PoolContainer" parent="." unique_id=662784140 instance=ExtResource("6_14hjg")]
 
 [node name="Grunt" parent="." unique_id=2005262230 instance=ExtResource("6_73shc")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 14.485233)
-script = null
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 15.433762)

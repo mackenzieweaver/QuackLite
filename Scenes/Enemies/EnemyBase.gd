@@ -2,11 +2,11 @@ class_name EnemyBase
 extends CharacterBody3D
 
 
-const WALKING_SPEED_SCALE_PARAM = "parameters/Walking/Speed/Scale"
-const HURT_SPEED_SCALE_PARAM = "parameters/Hurt/Speed/Scale"
-const MELEE_SPEED_SCALE_PARAM = "parameters/Attack/Melee/Speed/Scale"
-const SHOOT_SPEED_SCALE_PARAM = "parameters/Attack/Shoot/Speed/Scale"
-const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/Scale"
+const WALKING_SPEED_SCALE_PARAM = "parameters/Walking/Speed/scale"
+const HURT_SPEED_SCALE_PARAM = "parameters/Hurt/Speed/scale"
+const MELEE_SPEED_SCALE_PARAM = "parameters/Attack/Melee/Speed/scale"
+const SHOOT_SPEED_SCALE_PARAM = "parameters/Attack/Shoot/Speed/scale"
+const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/scale"
 
 
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -46,6 +46,7 @@ const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/Scale"
 
 
 func _ready() -> void:
+	print('grunt ready')
 	tree_sm.travel("Idle")
 	animation_tree[WALKING_SPEED_SCALE_PARAM] = walk_speed_scale
 	animation_tree[THROW_SPEED_SCALE_PARAM] = throw_speed_scale

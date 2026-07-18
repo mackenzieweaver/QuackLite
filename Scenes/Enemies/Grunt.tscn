@@ -2735,6 +2735,9 @@ _data = {
 
 [node name="Grunt" unique_id=2005262230 instance=ExtResource("1_cfekx")]
 
+[node name="PlayerDetect" parent="." index="6" unique_id=741012293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6890447, 0)
+
 [node name="AnimationTree" parent="." index="9" unique_id=1822004935]
 anim_player = NodePath("../AnimationPlayer2")
 
