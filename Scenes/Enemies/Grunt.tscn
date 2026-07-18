@@ -2,7 +2,43 @@
 
 [ext_resource type="PackedScene" uid="uid://cdc5ui3ycltkj" path="res://Scenes/Enemies/EnemyBase.tscn" id="1_cfekx"]
 [ext_resource type="Texture2D" uid="uid://ccs1yiv5g1x22" path="res://Assets/Models/Monsters/Vanguard/Vanguard_vanguard_diffuse1.png" id="2_lyn02"]
+[ext_resource type="AudioStream" uid="uid://bo76e4f8aji0j" path="res://Assets/Sounds/76960__Grunt_Death.wav" id="2_y3yn8"]
+[ext_resource type="AudioStream" uid="uid://bjlplgsnr6qcr" path="res://Assets/Sounds/76957__Grunt_Grunt.wav" id="3_hrtf3"]
 [ext_resource type="Texture2D" uid="uid://cpja21ka783ts" path="res://Assets/Models/Monsters/Vanguard/Vanguard_vanguard_normal.png" id="3_shdww"]
+[ext_resource type="AudioStream" uid="uid://c0m4it3g33v6r" path="res://Assets/Sounds/76971__Grunt_Pain.wav" id="4_g1esn"]
+[ext_resource type="AudioStream" uid="uid://bate0ekelt6vh" path="res://Assets/Sounds/128300__xenonn__layered-gunshot-4.wav" id="5_pskt5"]
+
+[sub_resource type="Animation" id="Animation_pv7rq"]
+resource_name = "death"
+
+[sub_resource type="Animation" id="Animation_cr2mw"]
+resource_name = "hurt"
+
+[sub_resource type="Animation" id="Animation_xafwa"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_1s67v"]
+resource_name = "melee"
+
+[sub_resource type="Animation" id="Animation_g1qk1"]
+resource_name = "shoot"
+
+[sub_resource type="Animation" id="Animation_qwaa7"]
+resource_name = "throw"
+
+[sub_resource type="Animation" id="Animation_bgttq"]
+resource_name = "walking"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6iml0"]
+_data = {
+&"Death": SubResource("Animation_pv7rq"),
+&"Hurt": SubResource("Animation_cr2mw"),
+&"Idle": SubResource("Animation_xafwa"),
+&"Melee": SubResource("Animation_1s67v"),
+&"Shoot": SubResource("Animation_g1qk1"),
+&"Throw": SubResource("Animation_qwaa7"),
+&"Walking": SubResource("Animation_bgttq")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxw5y"]
 resource_name = "VanguardBodyMat"
@@ -2734,9 +2770,16 @@ _data = {
 }
 
 [node name="Grunt" unique_id=2005262230 instance=ExtResource("1_cfekx")]
+death_sound = ExtResource("2_y3yn8")
+grunt_sound = ExtResource("3_hrtf3")
+pain_sound = ExtResource("4_g1esn")
+shoot_sound = ExtResource("5_pskt5")
 
 [node name="PlayerDetect" parent="." index="6" unique_id=741012293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6890447, 0)
+
+[node name="AnimationPlayer" parent="." index="8" unique_id=102578056]
+libraries/ = SubResource("AnimationLibrary_6iml0")
 
 [node name="AnimationTree" parent="." index="9" unique_id=1822004935]
 anim_player = NodePath("../AnimationPlayer2")

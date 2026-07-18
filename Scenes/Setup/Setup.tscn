@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dn4dq4s0cep0x" path="res://Scenes/Utils/ScreenShot/ScreenShot.tscn" id="4_sw2t2"]
 [ext_resource type="PackedScene" uid="uid://u4w1u1xywbf5" path="res://Scenes/PoolContainer.tscn" id="6_14hjg"]
 [ext_resource type="PackedScene" uid="uid://bbckcr2ildjpp" path="res://Scenes/Enemies/Grunt.tscn" id="6_73shc"]
+[ext_resource type="PackedScene" uid="uid://bj4k3m38r4pm7" path="res://Scenes/Enemies/Knight.tscn" id="7_eomkp"]
+[ext_resource type="PackedScene" uid="uid://cyoxtiffvhgur" path="res://Scenes/Enemies/Mutant.tscn" id="8_7tkot"]
+[ext_resource type="PackedScene" uid="uid://cbn55es5a4p5g" path="res://Scenes/Enemies/Zombie.tscn" id="9_oy1ta"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ccqp"]
 sky_top_color = Color(0.2617225, 0.31775224, 0.39240915, 1)
@@ -201,3 +204,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 22.025)
 
 [node name="Grunt" parent="." unique_id=2005262230 instance=ExtResource("6_73shc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 15.433762)
+
+[node name="Knight" parent="." unique_id=983164932 instance=ExtResource("7_eomkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6576722, 0.100017644, 16.65393)
+
+[node name="Mutant" parent="." unique_id=1651631781 instance=ExtResource("8_7tkot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5657988, 0.10594094, 16.8576)
+
+[node name="Zombie" parent="." unique_id=1564434077 instance=ExtResource("9_oy1ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.605642, 0.1276909, 17.061878)

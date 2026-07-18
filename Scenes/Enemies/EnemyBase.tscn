@@ -199,6 +199,7 @@ script = ExtResource("1_srcxp")
 collision_layer = 64
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1477999145]
+unit_size = 30.0
 
 [node name="PlayerRef" parent="." unique_id=1829355087 instance=ExtResource("2_srcxp")]
 
@@ -230,3 +231,7 @@ parameters/Attack/Throw/Speed/scale = 1.0
 parameters/Death/Speed/scale = 1.0
 parameters/Hurt/Speed/scale = 1.0
 parameters/Walking/Speed/scale = 1.0
+
+[connection signal="died" from="HitBox" to="." method="_on_hit_box_died"]
+[connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
+[connection signal="timeout" from="GruntTimer" to="." method="_on_grunt_timer_timeout"]

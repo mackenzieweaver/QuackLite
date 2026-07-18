@@ -46,7 +46,6 @@ const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/scale"
 
 
 func _ready() -> void:
-	print('grunt ready')
 	tree_sm.travel("Idle")
 	animation_tree[WALKING_SPEED_SCALE_PARAM] = walk_speed_scale
 	animation_tree[THROW_SPEED_SCALE_PARAM] = throw_speed_scale
@@ -59,27 +58,13 @@ func _physics_process(_delta: float) -> void:
 	player_detect.look_at(player_ref.player_pos)
 
 
+func _on_hit_box_died() -> void:
+	pass # Replace with function body.
 
 
+func _on_hit_box_hit(damage_taken: int) -> void:
+	pass # Replace with function body.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+func _on_grunt_timer_timeout() -> void:
+	pass # Replace with function body.
