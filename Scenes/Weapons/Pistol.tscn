@@ -7,6 +7,7 @@
 [sub_resource type="Resource" id="Resource_si21x"]
 script = ExtResource("2_iu145")
 damage = 34
+damage_collision_mask = 192
 metadata/_custom_type_script = "uid://b5yk34ek0q2ri"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6geb"]

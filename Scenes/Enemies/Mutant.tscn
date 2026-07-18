@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://b0mmo01io84h5" path="res://Assets/Models/Monsters/Mutant/Mutant_Mutant_diffuse.png" id="6_y21nk"]
 [ext_resource type="Texture2D" uid="uid://ryjiletsa2h2" path="res://Assets/Models/Monsters/Mutant/Mutant_Mutant_normal.png" id="7_a4pqx"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lne0e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gtdqd"]
+
 [sub_resource type="Animation" id="Animation_crkvt"]
 resource_name = "Death"
 length = 3.6333334
@@ -2630,6 +2634,14 @@ death_sound = ExtResource("2_gtdqd")
 grunt_sound = ExtResource("3_lne0e")
 pain_sound = ExtResource("4_ox4mx")
 shoot_sound = ExtResource("5_a4pqx")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=268638241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93668795, 0)
+shape = SubResource("CapsuleShape3D_lne0e")
+
+[node name="HitBox" parent="." index="1" unique_id=907411054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9753826, -0.043804795)
+shape_resource = SubResource("CapsuleShape3D_gtdqd")
 
 [node name="PlayerDetect" parent="." index="6" unique_id=741012293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6144147, 0)

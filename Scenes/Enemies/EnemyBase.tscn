@@ -234,4 +234,5 @@ parameters/Walking/Speed/scale = 1.0
 
 [connection signal="died" from="HitBox" to="." method="_on_hit_box_died"]
 [connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
+[connection signal="timeout" from="AccumulatedDamageTimer" to="." method="_on_accumulated_damage_timer_timeout"]
 [connection signal="timeout" from="GruntTimer" to="." method="_on_grunt_timer_timeout"]

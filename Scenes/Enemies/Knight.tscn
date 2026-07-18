@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://1sm4kxphyqp2" path="res://Assets/Models/Monsters/Knight/Knight_Paladin_diffuse.png" id="5_u7dwb"]
 [ext_resource type="Texture2D" uid="uid://c840rcav5dtkt" path="res://Assets/Models/Monsters/Knight/Knight_Paladin_normal.png" id="6_axwyl"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_52p6j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rt3fj"]
+height = 1.8
+
 [sub_resource type="Animation" id="Animation_rt3fj"]
 resource_name = "death"
 
@@ -2771,6 +2776,14 @@ blend_shape_mode = 0
 death_sound = ExtResource("2_rt3fj")
 grunt_sound = ExtResource("3_52p6j")
 pain_sound = ExtResource("4_8dbnn")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=268638241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96200156, 0)
+shape = SubResource("CapsuleShape3D_52p6j")
+
+[node name="HitBox" parent="." index="1" unique_id=907411054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8650449, 0)
+shape_resource = SubResource("CapsuleShape3D_rt3fj")
 
 [node name="PlayerDetect" parent="." index="6" unique_id=741012293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6154628, 0)

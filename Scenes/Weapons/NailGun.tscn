@@ -10,7 +10,7 @@ script = ExtResource("3_5crcg")
 projectile_scene = ExtResource("2_nn8xj")
 speed = 60.0
 damage = 10
-damage_collision_mask = 65
+damage_collision_mask = 192
 metadata/_custom_type_script = "uid://dg50n41nsuu1m"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pnn5"]

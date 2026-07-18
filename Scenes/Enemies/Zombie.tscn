@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://c50hwo2lvel85" path="res://Assets/Models/Monsters/Zombie/Zombie_zombie_normal.png" id="5_aieyy"]
 [ext_resource type="Texture2D" uid="uid://cgsumplequu3x" path="res://Assets/Models/Monsters/Zombie/Zombie_zombie_diffuse.png" id="6_rxpp2"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gyg6r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k2x5o"]
+height = 2.1
+
 [sub_resource type="Animation" id="Animation_k2x5o"]
 resource_name = "death"
 
@@ -2861,6 +2866,15 @@ blend_shape_mode = 0
 death_sound = ExtResource("2_k2x5o")
 grunt_sound = ExtResource("2_k2x5o")
 pain_sound = ExtResource("3_gyg6r")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=268638241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0384831, -0.008586049)
+shape = SubResource("CapsuleShape3D_gyg6r")
+
+[node name="HitBox" parent="." index="1" unique_id=907411054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99912643, -0.0029690266)
+collision_layer = 192
+shape_resource = SubResource("CapsuleShape3D_k2x5o")
 
 [node name="PlayerDetect" parent="." index="6" unique_id=741012293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8857392, 0)

@@ -2,6 +2,10 @@ class_name EnemyBase
 extends CharacterBody3D
 
 
+signal enemy_died
+signal enemy_hit(accumulated_damage: int)
+
+
 const WALKING_SPEED_SCALE_PARAM = "parameters/Walking/Speed/scale"
 const HURT_SPEED_SCALE_PARAM = "parameters/Hurt/Speed/scale"
 const MELEE_SPEED_SCALE_PARAM = "parameters/Attack/Melee/Speed/scale"
@@ -45,6 +49,10 @@ const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/scale"
 @export var shoot_sound: AudioStream
 
 
+var accumulated_damage: int = 0:
+	set(v): accumulated_damage = max(0, v)
+
+
 func _ready() -> void:
 	tree_sm.travel("Idle")
 	animation_tree[WALKING_SPEED_SCALE_PARAM] = walk_speed_scale
@@ -59,12 +67,20 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_hit_box_died() -> void:
-	pass # Replace with function body.
+	print('died')
+	enemy_died.emit()
 
 
 func _on_hit_box_hit(damage_taken: int) -> void:
-	pass # Replace with function body.
+	accumulated_damage += damage_taken
+	print('hit for %s -> accumulated %s' % [damage_taken, accumulated_damage])
+	enemy_hit.emit(accumulated_damage)
 
 
 func _on_grunt_timer_timeout() -> void:
-	pass # Replace with function body.
+	sfx.stream = grunt_sound
+	sfx.play()
+
+
+func _on_accumulated_damage_timer_timeout() -> void:
+	accumulated_damage = 0

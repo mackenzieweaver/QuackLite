@@ -8,6 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://c0m4it3g33v6r" path="res://Assets/Sounds/76971__Grunt_Pain.wav" id="4_g1esn"]
 [ext_resource type="AudioStream" uid="uid://bate0ekelt6vh" path="res://Assets/Sounds/128300__xenonn__layered-gunshot-4.wav" id="5_pskt5"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hrtf3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y3yn8"]
+
 [sub_resource type="Animation" id="Animation_pv7rq"]
 resource_name = "death"
 
@@ -2774,6 +2778,14 @@ death_sound = ExtResource("2_y3yn8")
 grunt_sound = ExtResource("3_hrtf3")
 pain_sound = ExtResource("4_g1esn")
 shoot_sound = ExtResource("5_pskt5")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=268638241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0016367, 0)
+shape = SubResource("CapsuleShape3D_hrtf3")
+
+[node name="HitBox" parent="." index="1" unique_id=907411054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99271405, 0.011100054)
+shape_resource = SubResource("CapsuleShape3D_y3yn8")
 
 [node name="PlayerDetect" parent="." index="6" unique_id=741012293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6890447, 0)
