@@ -3,28 +3,53 @@ extends Node
 
 
 @export var enemy: EnemyBase
-@export var initial_state: EnemyState
 @export var states: Dictionary[String, EnemyState] = {}
 
 
-var _state: EnemyState
+var _prev_state: EnemyState
+var _state: EnemyState:
+	set(_new_state):
+		if _state == _new_state:
+			return
+		if _state:
+			_prev_state = _state
+			_state.exit_state()
+		if _new_state:
+			_state = _new_state
+			_new_state.enter_state()
 
 
-func ready() -> void:
-	change_to_state(initial_state)
-	enemy.enemy_hit.connect(take_hit)
+func start() -> void:
+	idle()
+	enemy.animation_tree.animation_finished.connect(anim_finished)
+	enemy.enemy_hit.connect(hurt)
 
 
-func change_to_state(s: EnemyState):
-	if !s: return
-	if _state: _state.exit_state()
+func update(delta: float):
+	if _state: _state.update_state(delta)
+	enemy.player_detect.look_at(enemy.player_ref.player_pos)
 	
-	_state = s
-	_state.enter_state()
+	if enemy.player_detect.is_colliding():
+		if enemy.player_detect.get_collider() is Player:
+			walk()
+		else:
+			idle()
 
 
-func take_hit(_acc_dmg: int):
-	change_to_state(states.hurt)
+func idle(): _state = states.idle
+func walk(): _state = states.walking
+func hurt(): _state = states.hurt
+func anim_finished(_anim_name: String): idle()
+
+
+
+
+
+
+
+
+
+
 
 
 

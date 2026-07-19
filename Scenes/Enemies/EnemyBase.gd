@@ -55,7 +55,7 @@ var accumulated_damage: int = 0:
 
 
 func _ready() -> void:
-	enemy_state_machine.ready()
+	enemy_state_machine.start()
 	animation_tree[WALKING_SPEED_SCALE_PARAM] = walk_speed_scale
 	animation_tree[THROW_SPEED_SCALE_PARAM] = throw_speed_scale
 	animation_tree[MELEE_SPEED_SCALE_PARAM] = melee_speed_scale
@@ -63,16 +63,8 @@ func _ready() -> void:
 	animation_tree[HURT_SPEED_SCALE_PARAM] = hurt_speed_scale
 
 
-func _physics_process(_delta: float) -> void:
-	player_detect.look_at(player_ref.player_pos)
-	
-	if player_detect.is_colliding():
-		if player_detect.get_collider() is Player:
-			# Dont look up/down just straight
-			var x = player_ref.player_x
-			var z = player_ref.player_z
-			look_at(Vector3(x, 0, z))
-	
+func _physics_process(delta: float) -> void:
+	enemy_state_machine.update(delta)
 	move_and_slide()
 
 
