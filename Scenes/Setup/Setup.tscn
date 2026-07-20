@@ -78,7 +78,7 @@ collision_mask = 0
 shape = SubResource("ConvexPolygonShape3D_sw2t2")
 
 [node name="Block" type="MeshInstance3D" parent="Scenery" unique_id=199749024]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5433521, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.139694, 1.5433521, 1.2580545)
 mesh = SubResource("BoxMesh_sw2t2")
 skeleton = NodePath("../..")
 
@@ -206,16 +206,16 @@ transform = Transform3D(0.5962611, -0.53349507, 0.5998798, 0, 0.74724317, 0.6645
 [node name="PoolContainer" parent="." unique_id=662784140 instance=ExtResource("6_14hjg")]
 
 [node name="Player" parent="." unique_id=101774324 instance=ExtResource("3_0ccqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0231185, 1, 22.025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1062856, 0)
 
 [node name="Grunt" parent="." unique_id=2005262230 instance=ExtResource("6_73shc")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.093884e-09, 0, 15.398372)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.0772354, -15)
 
 [node name="Knight" parent="." unique_id=983164932 instance=ExtResource("7_eomkp")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.710162, 0.100017644, 15.425499)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -19.881004, 0, -30.565353)
 
 [node name="Mutant" parent="." unique_id=1651631781 instance=ExtResource("8_7tkot")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5199862, 0.10594094, 15.342088)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.7581787, 0, -41.384945)
 
 [node name="Zombie" parent="." unique_id=1564434077 instance=ExtResource("9_oy1ta")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.3395133, 0.1276909, 15.406165)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 19.745766, 0, -31.64731)

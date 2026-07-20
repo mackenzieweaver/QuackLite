@@ -41,6 +41,7 @@ const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/scale"
 @export var shoot_accuracy: float = 0.7
 @export var shoot_damage: float = 5
 @export var melee_damage: float = 20
+@export var walk_distance: float = 10.0
 @export var melee_distance: float = 1.5
 
 
@@ -56,6 +57,7 @@ var accumulated_damage: int = 0:
 
 func _ready() -> void:
 	enemy_state_machine.start()
+	nav_agent.path_height_offset = path_offset
 	animation_tree[WALKING_SPEED_SCALE_PARAM] = walk_speed_scale
 	animation_tree[THROW_SPEED_SCALE_PARAM] = throw_speed_scale
 	animation_tree[MELEE_SPEED_SCALE_PARAM] = melee_speed_scale
@@ -75,8 +77,12 @@ func _on_hit_box_died() -> void:
 
 func _on_hit_box_hit(damage_taken: int) -> void:
 	accumulated_damage += damage_taken
-	print('hit for %s -> accumulated %s' % [damage_taken, accumulated_damage])
 	enemy_hit.emit(accumulated_damage)
+	
+	sfx.stream = pain_sound
+	sfx.play()
+	
+	print('hit for %s -> accumulated %s' % [damage_taken, accumulated_damage])
 
 
 func _on_grunt_timer_timeout() -> void:
@@ -86,3 +92,26 @@ func _on_grunt_timer_timeout() -> void:
 
 func _on_accumulated_damage_timer_timeout() -> void:
 	accumulated_damage = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

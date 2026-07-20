@@ -199,9 +199,8 @@ collision_layer = 32
 collision_mask = 3
 script = ExtResource("1_srcxp")
 
-[node name="EnemyStateMachine" parent="." unique_id=1790398763 node_paths=PackedStringArray("enemy", "initial_state", "states") instance=ExtResource("4_2a3kf")]
+[node name="EnemyStateMachine" parent="." unique_id=1790398763 node_paths=PackedStringArray("enemy", "states") instance=ExtResource("4_2a3kf")]
 enemy = NodePath("..")
-initial_state = NodePath("EnemyStateIdle")
 states = {
 "hurt": NodePath("EnemyStateHurt"),
 "idle": NodePath("EnemyStateIdle"),

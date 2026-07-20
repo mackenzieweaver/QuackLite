@@ -28,6 +28,8 @@ streams_count = 2
 stream_0/stream = ExtResource("6_t26db")
 stream_1/stream = ExtResource("6_t26db")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0u84n"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t26db"]
 albedo_color = Color(0.9019608, 0.21176471, 0.30588236, 1)
 
@@ -64,6 +66,7 @@ stream = SubResource("AudioStreamRandomizer_825xp")
 [node name="HitBox" parent="." unique_id=1588074478 instance=ExtResource("13_epg6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.054563105, 0)
 collision_layer = 16
+shape_resource = SubResource("CapsuleShape3D_0u84n")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=232865841]
 material_override = SubResource("StandardMaterial3D_t26db")
