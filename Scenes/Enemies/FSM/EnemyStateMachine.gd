@@ -6,6 +6,7 @@ extends Node
 @export var states: Dictionary[String, EnemyState] = {}
 
 
+var _can_change_state: bool = true
 var _prev_state: EnemyState
 var _state: EnemyState:
 	set(_new_state):
@@ -24,25 +25,34 @@ func start() -> void:
 	idle()
 	enemy.animation_tree.animation_finished.connect(anim_finished)
 	enemy.enemy_hit.connect(hurt)
+	enemy.enemy_died.connect(death)
 
 
 func update(delta: float):
 	if _state: _state.update_state(delta)
+	if !_can_change_state: return
 	
 	enemy.player_detect.look_at(enemy.player_ref.player_pos)
-	var is_hurt: bool = _state == states.hurt
 	
-	if !is_hurt:
-		if can_walk():
-			walk()
-		else:
-			idle()
+	if can_walk():
+		walk()
+	else:
+		idle()
 
 
 func idle(): _state = states.idle
 func walk(): _state = states.walking
-func hurt(_acc_dmg: int): _state = states.hurt
-func anim_finished(_anim_name: String): idle()
+func hurt(_acc_dmg: int):
+	_can_change_state = false
+	_state = states.hurt
+func death():
+	_can_change_state = false
+	_state = states.death
+func anim_finished(anim_name: String):
+	if anim_name == "Hurt":
+		_can_change_state = true
+	if anim_name == "Death":
+		_state.exit_state()
 
 
 func can_walk() -> bool:

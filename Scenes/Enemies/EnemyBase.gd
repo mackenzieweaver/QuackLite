@@ -19,6 +19,7 @@ const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/scale"
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
 
 
+@onready var physics_collision: CollisionShape3D = $PhysicsCollision
 @onready var hit_box: HitBox = $HitBox
 @onready var player_ref: PlayerRef = $PlayerRef
 @onready var player_detect: RayCast3D = $PlayerDetect

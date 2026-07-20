@@ -12,7 +12,8 @@ func update_state(_delta: float):
 
 
 func exit_state():
-	pass
+	enemy.velocity = Vector3.ZERO
+	enemy.grunt_timer.stop()
 
 
 func grunt():

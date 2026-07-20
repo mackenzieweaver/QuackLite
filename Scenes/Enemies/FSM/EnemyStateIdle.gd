@@ -7,7 +7,7 @@ func enter_state():
 
 
 func update_state(_delta: float):
-	enemy.velocity = Vector3.ZERO
+	pass
 
 
 func exit_state():

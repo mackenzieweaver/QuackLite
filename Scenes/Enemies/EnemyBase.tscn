@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cp6vhyrcmqmbm" path="res://Scenes/Enemies/FSM/EnemyStateMachine.tscn" id="4_2a3kf"]
 [ext_resource type="PackedScene" uid="uid://ck84dbnvx0qnl" path="res://Scenes/Enemies/FSM/EnemyStateWalking.tscn" id="4_aahyb"]
 [ext_resource type="PackedScene" uid="uid://jps14k7gwp7p" path="res://Scenes/Enemies/FSM/EnemyStateHurt.tscn" id="5_tgb06"]
+[ext_resource type="PackedScene" uid="uid://dsjgtwm4vjxl6" path="res://Scenes/Enemies/FSM/EnemyStateDeath.tscn" id="6_fj512"]
 
 [sub_resource type="Animation" id="Animation_p6c21"]
 resource_name = "death"
@@ -192,7 +193,7 @@ states/Start/position = Vector2(4, 392)
 states/Walking/node = SubResource("AnimationNodeBlendTree_bo7sv")
 states/Walking/position = Vector2(381, 245)
 transitions = ["Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_kxeub"), "Attack", "Hurt", SubResource("AnimationNodeStateMachineTransition_st35r"), "Walking", "Attack", SubResource("AnimationNodeStateMachineTransition_8ly7q"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_ebyh8"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_4seab"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_hj68u"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_6xajl"), "Attack", "Walking", SubResource("AnimationNodeStateMachineTransition_d3eg6"), "Walking", "Hurt", SubResource("AnimationNodeStateMachineTransition_ouk02"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_p6c21")]
-graph_offset = Vector2(-160, 147)
+graph_offset = Vector2(-117, 402)
 
 [node name="EnemyBase" type="CharacterBody3D" unique_id=2005262230]
 collision_layer = 32
@@ -202,6 +203,7 @@ script = ExtResource("1_srcxp")
 [node name="EnemyStateMachine" parent="." unique_id=1790398763 node_paths=PackedStringArray("enemy", "states") instance=ExtResource("4_2a3kf")]
 enemy = NodePath("..")
 states = {
+"death": NodePath("EnemyStateDeath"),
 "hurt": NodePath("EnemyStateHurt"),
 "idle": NodePath("EnemyStateIdle"),
 "walking": NodePath("EnemyStateWalking")
@@ -219,7 +221,11 @@ enemy = NodePath("../..")
 state_machine = NodePath("..")
 enemy = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=268638241]
+[node name="EnemyStateDeath" parent="EnemyStateMachine" unique_id=1049272609 node_paths=PackedStringArray("state_machine", "enemy") instance=ExtResource("6_fj512")]
+state_machine = NodePath("..")
+enemy = NodePath("../..")
+
+[node name="PhysicsCollision" type="CollisionShape3D" parent="." unique_id=268638241]
 
 [node name="HitBox" parent="." unique_id=907411054 instance=ExtResource("1_p6c21")]
 collision_layer = 64
