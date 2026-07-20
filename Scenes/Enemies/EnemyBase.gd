@@ -72,8 +72,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hit_box_died() -> void:
-	print('died')
 	enemy_died.emit()
+	
+	sfx.stream = death_sound
+	sfx.play()
+	
+	print('died')
 
 
 func _on_hit_box_hit(damage_taken: int) -> void:
