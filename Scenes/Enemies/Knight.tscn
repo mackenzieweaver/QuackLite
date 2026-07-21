@@ -2786,12 +2786,14 @@ pain_sound = ExtResource("4_8dbnn")
 
 [node name="EnemyStateMachine" parent="." index="0" unique_id=1790398763 node_paths=PackedStringArray("states")]
 states = {
+"death": NodePath("EnemyStateDeath"),
 "hurt": NodePath("EnemyStateHurt"),
 "idle": NodePath("EnemyStateIdle"),
+"shoot": NodePath("EnemyStateShoot"),
 "walking": NodePath("EnemyStateWalking")
 }
 
-[node name="CollisionShape3D" parent="." index="1" unique_id=268638241]
+[node name="PhysicsCollision" parent="." index="1" unique_id=268638241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96200156, 0)
 shape = SubResource("CapsuleShape3D_52p6j")
 

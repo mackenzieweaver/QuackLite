@@ -33,15 +33,28 @@ func update(delta: float):
 	if !_can_change_state: return
 	
 	enemy.player_detect.look_at(enemy.player_ref.player_pos)
+	var _can_see_player = can_see_player()
 	
-	if can_walk():
-		walk()
-	else:
-		idle()
+	if _can_see_player:
+		if can_shoot():
+			shoot()
+			return
+		elif can_walk():
+			walk()
+			return
+	
+	idle()
 
 
-func idle(): _state = states.idle
-func walk(): _state = states.walking
+func idle():
+	_can_change_state = true
+	_state = states.idle
+func walk():
+	_can_change_state = true
+	_state = states.walking
+func shoot():
+	_can_change_state = false
+	_state = states.shoot
 func hurt(_acc_dmg: int):
 	_can_change_state = false
 	_state = states.hurt
@@ -49,27 +62,31 @@ func death():
 	_can_change_state = false
 	_state = states.death
 func anim_finished(anim_name: String):
-	if anim_name == "Hurt":
-		_can_change_state = true
-	if anim_name == "Death":
+	if anim_name == 'Death':
 		_state.exit_state()
+		return
+	_can_change_state = true
 
 
-func can_walk() -> bool:
+func can_see_player() -> bool:
 	var is_colliding: bool = enemy.player_detect.is_colliding()
 	var with_player: bool = enemy.player_detect.get_collider() is Player
 	var is_colliding_with_player: bool = is_colliding and with_player
-	
-	var is_within_distance = enemy.player_ref.player_less_than_distance(
+	return is_colliding_with_player
+
+
+func can_walk() -> bool:
+	return enemy.player_ref.player_less_than_distance(
 		enemy.global_position,
 		enemy.walk_distance
 	)
-	
-	return is_colliding_with_player and is_within_distance
 
 
-
-
+func can_shoot() -> bool:
+	return enemy.player_ref.player_less_than_distance(
+		enemy.global_position,
+		enemy.shoot_distance
+	)
 
 
 

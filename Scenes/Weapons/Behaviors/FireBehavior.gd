@@ -6,7 +6,7 @@ extends Resource
 @export_flags_3d_physics var damage_collision_mask = 1
 
 
-func fire(parent: Node3D, transform: Transform3D):
+func fire(_parent: Node3D, _transform: Transform3D):
 	pass
 
 

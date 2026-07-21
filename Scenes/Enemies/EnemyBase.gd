@@ -42,7 +42,8 @@ const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/scale"
 @export var shoot_accuracy: float = 0.7
 @export var shoot_damage: float = 5
 @export var melee_damage: float = 20
-@export var walk_distance: float = 10.0
+@export var walk_distance: float = 20.0
+@export var shoot_distance: float = 10.0
 @export var melee_distance: float = 1.5
 
 
@@ -73,11 +74,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit_box_died() -> void:
 	enemy_died.emit()
-	
 	sfx.stream = death_sound
 	sfx.play()
-	
-	print('died')
 
 
 func _on_hit_box_hit(damage_taken: int) -> void:

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://kyrjtdyoifh4"]
+
+[ext_resource type="Script" uid="uid://c63t2exyls1sl" path="res://Scenes/Enemies/FSM/EnemyStateShoot.gd" id="1_baa1p"]
+
+[node name="EnemyStateShoot" type="Node" unique_id=157564801]
+script = ExtResource("1_baa1p")
+metadata/_custom_type_script = "uid://c70jmty310wx5"

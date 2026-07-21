@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpja21ka783ts" path="res://Assets/Models/Monsters/Vanguard/Vanguard_vanguard_normal.png" id="3_shdww"]
 [ext_resource type="AudioStream" uid="uid://c0m4it3g33v6r" path="res://Assets/Sounds/76971__Grunt_Pain.wav" id="4_g1esn"]
 [ext_resource type="AudioStream" uid="uid://bate0ekelt6vh" path="res://Assets/Sounds/128300__xenonn__layered-gunshot-4.wav" id="5_pskt5"]
+[ext_resource type="PackedScene" uid="uid://xbtuq72c0ki2" path="res://Assets/Models/Guns/heavy_assault_rifle.glb" id="8_hrtf3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hrtf3"]
 
@@ -2788,12 +2789,14 @@ shoot_sound = ExtResource("5_pskt5")
 
 [node name="EnemyStateMachine" parent="." index="0" unique_id=1790398763 node_paths=PackedStringArray("states")]
 states = {
+"death": NodePath("EnemyStateDeath"),
 "hurt": NodePath("EnemyStateHurt"),
 "idle": NodePath("EnemyStateIdle"),
+"shoot": NodePath("EnemyStateShoot"),
 "walking": NodePath("EnemyStateWalking")
 }
 
-[node name="CollisionShape3D" parent="." index="1" unique_id=268638241]
+[node name="PhysicsCollision" parent="." index="1" unique_id=268638241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0016367, 0)
 shape = SubResource("CapsuleShape3D_hrtf3")
 
@@ -3281,6 +3284,14 @@ skin = SubResource("Skin_8vo3k")
 [node name="vanguard_visor" type="MeshInstance3D" parent="Armature/Skeleton3D" index="1" unique_id=250817558]
 mesh = SubResource("ArrayMesh_t4rfi")
 skin = SubResource("Skin_8vo3k")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2" unique_id=1986925241]
+transform = Transform3D(-6.1316996e-09, -0.9999995, 2.2351752e-07, 6.6678183e-09, -1.9371505e-07, -0.99999964, 0.9999994, -9.856521e-09, 4.632362e-09, -0.68026507, 1.47923, -0.057597127)
+bone_name = "RightHand"
+bone_idx = 35
+
+[node name="Sketchfab_Scene" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" unique_id=1502940266 instance=ExtResource("8_hrtf3")]
+transform = Transform3D(-0.26183283, 0.9485996, -0.1777729, -0.24032804, 0.11431196, 0.9639377, 0.93471235, 0.29511434, 0.19804439, -0.07982133, 0.40467352, 0.083800375)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="11" unique_id=1017069091]
 libraries/ = SubResource("AnimationLibrary_pv7rq")
