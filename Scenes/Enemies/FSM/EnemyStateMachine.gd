@@ -54,7 +54,8 @@ func walk():
 	_state = states.walking
 func shoot():
 	_can_change_state = false
-	_state = states.shoot
+	if _state == states.shoot: _state.enter_state()
+	else: _state = states.shoot
 func hurt(_acc_dmg: int):
 	_can_change_state = false
 	_state = states.hurt
@@ -76,17 +77,19 @@ func can_see_player() -> bool:
 
 
 func can_walk() -> bool:
-	return enemy.player_ref.player_less_than_distance(
+	var within_distance = enemy.player_ref.player_less_than_distance(
 		enemy.global_position,
 		enemy.walk_distance
 	)
+	return within_distance
 
 
 func can_shoot() -> bool:
-	return enemy.player_ref.player_less_than_distance(
+	var within_distance = enemy.player_ref.player_less_than_distance(
 		enemy.global_position,
 		enemy.shoot_distance
 	)
+	return within_distance
 
 
 

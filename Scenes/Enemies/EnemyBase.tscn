@@ -22,6 +22,9 @@ resource_name = "idle"
 [sub_resource type="Animation" id="Animation_m1s7c"]
 resource_name = "melee"
 
+[sub_resource type="Animation" id="Animation_uhgc7"]
+resource_name = "RESET"
+
 [sub_resource type="Animation" id="Animation_aahyb"]
 resource_name = "shoot"
 
@@ -38,6 +41,7 @@ _data = {
 &"Hurt": SubResource("Animation_srcxp"),
 &"Idle": SubResource("Animation_2a3kf"),
 &"Melee": SubResource("Animation_m1s7c"),
+&"RESET": SubResource("Animation_uhgc7"),
 &"Shoot": SubResource("Animation_aahyb"),
 &"Throw": SubResource("Animation_tgb06"),
 &"Walking": SubResource("Animation_fj512")
@@ -194,7 +198,7 @@ states/Start/position = Vector2(4, 392)
 states/Walking/node = SubResource("AnimationNodeBlendTree_bo7sv")
 states/Walking/position = Vector2(381, 245)
 transitions = ["Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_kxeub"), "Attack", "Hurt", SubResource("AnimationNodeStateMachineTransition_st35r"), "Walking", "Attack", SubResource("AnimationNodeStateMachineTransition_8ly7q"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_ebyh8"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_4seab"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_hj68u"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_6xajl"), "Attack", "Walking", SubResource("AnimationNodeStateMachineTransition_d3eg6"), "Walking", "Hurt", SubResource("AnimationNodeStateMachineTransition_ouk02"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_p6c21")]
-graph_offset = Vector2(-4.5244446, 254.73221)
+graph_offset = Vector2(28.475555, 208.73218)
 
 [node name="EnemyBase" type="CharacterBody3D" unique_id=2005262230]
 collision_layer = 32
