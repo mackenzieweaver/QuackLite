@@ -44,6 +44,7 @@ const THROW_SPEED_SCALE_PARAM = "parameters/Attack/Throw/Speed/scale"
 @export var melee_damage: float = 20
 @export var walk_distance: float = 20.0
 @export var shoot_distance: float = 10.0
+@export var throw_distance: float = 10.0
 @export var melee_distance: float = 1.5
 
 
@@ -70,13 +71,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	enemy_state_machine.update(delta)
 	move_and_slide()
-
-
-func look_at_player():
-	# Dont look up/down just straight
-	var x = player_ref.player_x
-	var z = player_ref.player_z
-	look_at(Vector3(x, 0, z))
 
 
 func _on_hit_box_died() -> void:

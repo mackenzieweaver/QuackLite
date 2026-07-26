@@ -26,7 +26,7 @@ func walk():
 	if enemy.nav_agent.target_position != enemy.player_ref.player_pos:
 		enemy.nav_agent.target_position = enemy.player_ref.player_pos
 	
-	enemy.look_at_player()
+	look_at_player()
 	enemy.velocity = enemy.transform.basis * Vector3.FORWARD * enemy.speed
 
 

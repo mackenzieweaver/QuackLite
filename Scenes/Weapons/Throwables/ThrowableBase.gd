@@ -18,14 +18,6 @@ var _instant_explode_collision_mask: int = 0
 var _physics_collision_mask: int = 0
 
 
-func _ready() -> void:
-	damage_area.collision_mask = _damage_collision_mask
-	instant_explode.collision_mask = _instant_explode_collision_mask
-	collision_mask = _physics_collision_mask
-	apply_central_impulse(-global_transform.basis.z.normalized() * _impulse)
-	apply_torque_impulse(_torque)
-
-
 func init(impulse: float, torque: Vector3, damage: int, damage_collision_mask: int, instant_explode_collision_mask: int, physics_collision_mask: int):
 	_impulse = impulse
 	_torque = torque
@@ -33,6 +25,14 @@ func init(impulse: float, torque: Vector3, damage: int, damage_collision_mask: i
 	_damage_collision_mask = damage_collision_mask
 	_instant_explode_collision_mask = instant_explode_collision_mask
 	_physics_collision_mask = physics_collision_mask
+
+
+func _ready() -> void:
+	damage_area.collision_mask = _damage_collision_mask
+	instant_explode.collision_mask = _instant_explode_collision_mask
+	collision_mask = _physics_collision_mask
+	apply_central_impulse(-global_transform.basis.z.normalized() * _impulse)
+	apply_torque_impulse(_torque)
 
 
 func blow_up():

@@ -8,8 +8,14 @@ extends FireBehavior
 @export_flags_3d_physics var instant_explode_collision_mask: int = 0
 @export_flags_3d_physics var physics_collision_mask: int = 0
 
-func fire(_parent: Node3D, _transform: Transform3D):
-	var tb: ThrowableBase = throwable_scene.instantiate()
-	tb.global_transform = _transform
-	tb.init(impulse, torque, damage, damage_collision_mask, instant_explode_collision_mask, physics_collision_mask)
-	_parent.get_tree().current_scene.add_child(tb)
+func fire(parent: Node3D, transform: Transform3D):
+	var throwable: ThrowableBase = throwable_scene.instantiate()
+	
+	# E.g. place grenade at finger tip of bone
+	throwable.global_position = transform.origin
+	
+	# E.g. face the same way as the enemy
+	throwable.transform.basis = parent.transform.basis
+	
+	throwable.init(impulse, torque, damage, damage_collision_mask, instant_explode_collision_mask, physics_collision_mask)
+	parent.get_tree().current_scene.add_child(throwable)

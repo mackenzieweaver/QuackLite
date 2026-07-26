@@ -30,16 +30,19 @@ func start() -> void:
 
 func update(delta: float):
 	if _state: _state.update_state(delta)
-	if !_can_change_state: return
-	
 	enemy.player_detect.look_at(enemy.player_ref.player_pos)
+	
+	if !_can_change_state: return
 	var _can_see_player = can_see_player()
 	
 	if _can_see_player:
-		if can_shoot():
+		var _can_walk = check_distance(enemy.walk_distance)
+		var _can_shoot = check_distance(enemy.shoot_distance)
+		
+		if _can_shoot:
 			shoot()
 			return
-		elif can_walk():
+		elif _can_walk:
 			walk()
 			return
 	
@@ -76,20 +79,11 @@ func can_see_player() -> bool:
 	return is_colliding_with_player
 
 
-func can_walk() -> bool:
-	var within_distance = enemy.player_ref.player_less_than_distance(
+func check_distance(distance: float) -> bool:
+	return enemy.player_ref.player_less_than_distance(
 		enemy.global_position,
-		enemy.walk_distance
+		distance
 	)
-	return within_distance
-
-
-func can_shoot() -> bool:
-	var within_distance = enemy.player_ref.player_less_than_distance(
-		enemy.global_position,
-		enemy.shoot_distance
-	)
-	return within_distance
 
 
 

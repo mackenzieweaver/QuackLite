@@ -10,43 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dsjgtwm4vjxl6" path="res://Scenes/Enemies/FSM/EnemyStateDeath.tscn" id="6_fj512"]
 [ext_resource type="PackedScene" uid="uid://kyrjtdyoifh4" path="res://Scenes/Enemies/FSM/EnemyStateShoot.tscn" id="7_uhgc7"]
 
-[sub_resource type="Animation" id="Animation_p6c21"]
-resource_name = "death"
-
-[sub_resource type="Animation" id="Animation_srcxp"]
-resource_name = "hurt"
-
-[sub_resource type="Animation" id="Animation_2a3kf"]
-resource_name = "idle"
-
-[sub_resource type="Animation" id="Animation_m1s7c"]
-resource_name = "melee"
-
-[sub_resource type="Animation" id="Animation_uhgc7"]
-resource_name = "RESET"
-
-[sub_resource type="Animation" id="Animation_aahyb"]
-resource_name = "shoot"
-
-[sub_resource type="Animation" id="Animation_tgb06"]
-resource_name = "throw"
-
-[sub_resource type="Animation" id="Animation_fj512"]
-resource_name = "walking"
-loop_mode = 2
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhgc7"]
-_data = {
-&"Death": SubResource("Animation_p6c21"),
-&"Hurt": SubResource("Animation_srcxp"),
-&"Idle": SubResource("Animation_2a3kf"),
-&"Melee": SubResource("Animation_m1s7c"),
-&"RESET": SubResource("Animation_uhgc7"),
-&"Shoot": SubResource("Animation_aahyb"),
-&"Throw": SubResource("Animation_tgb06"),
-&"Walking": SubResource("Animation_fj512")
-}
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p6c21"]
 animation = &"Melee"
 
@@ -81,7 +44,7 @@ animation = &"Throw"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_uhgc7"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4ni7a"]
-graph_offset = Vector2(-122, -227)
+graph_offset = Vector2(-59.727703, -6.430593)
 nodes/output/position = Vector2(860, 160)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_fj512")
 nodes/Animation/position = Vector2(400, 180)
@@ -198,7 +161,7 @@ states/Start/position = Vector2(4, 392)
 states/Walking/node = SubResource("AnimationNodeBlendTree_bo7sv")
 states/Walking/position = Vector2(381, 245)
 transitions = ["Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_kxeub"), "Attack", "Hurt", SubResource("AnimationNodeStateMachineTransition_st35r"), "Walking", "Attack", SubResource("AnimationNodeStateMachineTransition_8ly7q"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_ebyh8"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_4seab"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_hj68u"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_6xajl"), "Attack", "Walking", SubResource("AnimationNodeStateMachineTransition_d3eg6"), "Walking", "Hurt", SubResource("AnimationNodeStateMachineTransition_ouk02"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_p6c21")]
-graph_offset = Vector2(28.475555, 208.73218)
+graph_offset = Vector2(83.475555, 260.73218)
 
 [node name="EnemyBase" type="CharacterBody3D" unique_id=2005262230]
 collision_layer = 32
@@ -261,12 +224,8 @@ debug_shape_custom_color = Color(0, 0.6848154, 1, 1)
 [node name="NavAgent" type="NavigationAgent3D" parent="." unique_id=239693241]
 path_height_offset = 0.5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=102578056]
-libraries/ = SubResource("AnimationLibrary_uhgc7")
-
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1822004935]
 tree_root = SubResource("AnimationNodeStateMachine_sja6u")
-anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/Melee/Speed/scale = 0.0
 parameters/Attack/Shoot/Speed/scale = 1.0
 parameters/Attack/Throw/Speed/scale = 1.0
