@@ -30,12 +30,15 @@ func look_at_player():
 
 
 func play_attack_animation(anim_name: String):
-	var current_tree_sm_node = enemy.tree_sm.get_current_node()
-	if !current_tree_sm_node == 'Attack': enemy.tree_sm.travel("Attack")
+	if !enemy.tree_sm.get_current_node() == 'Attack':
+		enemy.tree_sm.travel("Attack")
+		await get_tree().process_frame
+		await get_tree().process_frame
 	
-	var current_tree_sm_attack_node = enemy.tree_sm_attack.get_current_node()
-	if current_tree_sm_attack_node == anim_name: enemy.tree_sm_attack.start(anim_name)
-	else: enemy.tree_sm_attack.travel(anim_name)
+	if enemy.tree_sm_attack.get_current_node() == anim_name:
+		enemy.tree_sm_attack.start(anim_name)
+	else:
+		enemy.tree_sm_attack.travel(anim_name)
 
 
 func fire():

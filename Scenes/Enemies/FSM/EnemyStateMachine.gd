@@ -126,8 +126,7 @@ func anim_finished(anim_name: String):
 func can_see_player() -> bool:
 	var is_colliding: bool = enemy.player_detect.is_colliding()
 	var with_player: bool = enemy.player_detect.get_collider() is Player
-	var is_colliding_with_player: bool = is_colliding and with_player
-	return is_colliding_with_player
+	return is_colliding and with_player
 
 
 func check_distance(distance: float) -> bool:
