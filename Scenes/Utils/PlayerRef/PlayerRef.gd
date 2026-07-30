@@ -44,6 +44,10 @@ func player_less_than_distance(our_pos: Vector3, distance: float) -> bool:
 	return our_pos.distance_to(_player_ref.global_position) < distance
 
 
+func player_greater_than_distance(our_pos: Vector3, distance: float) -> bool:
+	return our_pos.distance_to(_player_ref.global_position) > distance
+
+
 func _ready() -> void:
 	find_ref()
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsjgtwm4vjxl6"]
 
+[ext_resource type="PackedScene" uid="uid://bcxsqtccaava6" path="res://Scenes/Enemies/FSM/EnemyState.tscn" id="1_4hlmp"]
 [ext_resource type="Script" uid="uid://bp2mbtmwdvlsp" path="res://Scenes/Enemies/FSM/EnemyStateDeath.gd" id="1_h8pm2"]
 
-[node name="EnemyStateDeath" type="Node" unique_id=1049272609]
+[node name="EnemyStateDeath" unique_id=615545462 instance=ExtResource("1_4hlmp")]
 script = ExtResource("1_h8pm2")
-metadata/_custom_type_script = "uid://c70jmty310wx5"

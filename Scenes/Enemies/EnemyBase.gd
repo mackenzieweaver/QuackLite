@@ -98,7 +98,8 @@ func _on_accumulated_damage_timer_timeout() -> void:
 	accumulated_damage = 0
 
 
-
+func _on_melee_hit_area_entered(area: Area3D):
+	if area is HitBox: area.take_hit(melee_damage)
 
 
 

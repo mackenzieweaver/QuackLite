@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://jps14k7gwp7p"]
 
+[ext_resource type="PackedScene" uid="uid://bcxsqtccaava6" path="res://Scenes/Enemies/FSM/EnemyState.tscn" id="1_lmp7a"]
 [ext_resource type="Script" uid="uid://qwg38btq1kge" path="res://Scenes/Enemies/FSM/EnemyStateHurt.gd" id="1_rfbgi"]
 
-[node name="EnemyStateHurt" type="Node" unique_id=9030172]
+[node name="EnemyStateHurt" unique_id=615545462 instance=ExtResource("1_lmp7a")]
 script = ExtResource("1_rfbgi")

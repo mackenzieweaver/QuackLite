@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://jps14k7gwp7p" path="res://Scenes/Enemies/FSM/EnemyStateHurt.tscn" id="5_tgb06"]
 [ext_resource type="PackedScene" uid="uid://dsjgtwm4vjxl6" path="res://Scenes/Enemies/FSM/EnemyStateDeath.tscn" id="6_fj512"]
 [ext_resource type="PackedScene" uid="uid://kyrjtdyoifh4" path="res://Scenes/Enemies/FSM/EnemyStateShoot.tscn" id="7_uhgc7"]
+[ext_resource type="PackedScene" uid="uid://g7txmhlq0j7e" path="res://Scenes/Enemies/FSM/EnemyStateMelee.tscn" id="8_4ni7a"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p6c21"]
 animation = &"Melee"
@@ -174,6 +175,7 @@ states = {
 "death": NodePath("EnemyStateDeath"),
 "hurt": NodePath("EnemyStateHurt"),
 "idle": NodePath("EnemyStateIdle"),
+"melee": NodePath("EnemyStateMelee"),
 "shoot": NodePath("EnemyStateShoot"),
 "walking": NodePath("EnemyStateWalking")
 }
@@ -195,6 +197,10 @@ state_machine = NodePath("..")
 enemy = NodePath("../..")
 
 [node name="EnemyStateShoot" parent="EnemyStateMachine" unique_id=157564801 node_paths=PackedStringArray("state_machine", "enemy") instance=ExtResource("7_uhgc7")]
+state_machine = NodePath("..")
+enemy = NodePath("../..")
+
+[node name="EnemyStateMelee" parent="EnemyStateMachine" unique_id=2122197545 node_paths=PackedStringArray("state_machine", "enemy") instance=ExtResource("8_4ni7a")]
 state_machine = NodePath("..")
 enemy = NodePath("../..")
 
@@ -225,6 +231,7 @@ debug_shape_custom_color = Color(0, 0.6848154, 1, 1)
 path_height_offset = 0.5
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1822004935]
+callback_mode_process = 0
 tree_root = SubResource("AnimationNodeStateMachine_sja6u")
 parameters/Attack/Melee/Speed/scale = 0.0
 parameters/Attack/Shoot/Speed/scale = 1.0

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://g7txmhlq0j7e"]
+
+[ext_resource type="PackedScene" uid="uid://bcxsqtccaava6" path="res://Scenes/Enemies/FSM/EnemyState.tscn" id="1_prbqv"]
+[ext_resource type="Script" uid="uid://d0lxln3dhsfci" path="res://Scenes/Enemies/FSM/EnemyStateMelee.gd" id="1_r40nu"]
+
+[node name="EnemyStateMelee" unique_id=615545462 instance=ExtResource("1_prbqv")]
+script = ExtResource("1_r40nu")
+cooldown_time = 2.0
