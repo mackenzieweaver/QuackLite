@@ -78,9 +78,10 @@ func on_melee_cooldown():
 
 
 func can_melee() -> bool:
+	var has_melee_state = states['melee'] is EnemyStateMelee
 	var close_enough = check_distance(enemy.melee_distance)
 	var off_cooldown = !_melee_on_cooldown
-	return close_enough and off_cooldown
+	return has_melee_state and close_enough and off_cooldown
 
 
 func shoot():

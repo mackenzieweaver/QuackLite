@@ -2775,7 +2775,8 @@ fire_behavior = SubResource("Resource_pskt5")
 melee_damage = 10.0
 walk_distance = 25.0
 shoot_distance = 15.0
-melee_distance = 1.0
+throw_distance = 0.0
+melee_distance = 0.0
 death_sound = ExtResource("2_y3yn8")
 grunt_sound = ExtResource("3_hrtf3")
 pain_sound = ExtResource("4_g1esn")
@@ -2787,7 +2788,6 @@ states = {
 "hurt": NodePath("EnemyStateHurt"),
 "idle": NodePath("EnemyStateIdle"),
 "shoot": NodePath("EnemyStateShoot"),
-"throw": null,
 "walking": NodePath("EnemyStateWalking")
 }
 
