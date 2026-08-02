@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://ccmt5wuajgtvc"]
+
+[ext_resource type="Texture2D" uid="uid://b2m77v55u1bvk" path="res://Assets/Textures/Health.png" id="1_0tahi"]
+[ext_resource type="Script" uid="uid://dha8w1q2c14hw" path="res://Scenes/Pickups/HealthPickup.gd" id="1_dbqi3"]
+[ext_resource type="Shader" uid="uid://b8e7vpifst38e" path="res://Scenes/Pickups/HealthPickupShader.tres" id="2_oe8vv"]
+[ext_resource type="Texture2D" uid="uid://bed4mpd0g3bty" path="res://Assets/Textures/Dot.png" id="3_oe8vv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8xhtj"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbqi3"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.736, 1.556, 1.556, 1)
+albedo_texture = ExtResource("1_0tahi")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_qjyx1"]
+material = SubResource("StandardMaterial3D_dbqi3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cuakc"]
+render_priority = 0
+shader = ExtResource("2_oe8vv")
+shader_parameter/ColorParameter = Color(0, 1.007768, 1.353256, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6hs5k"]
+
+[sub_resource type="Curve" id="Curve_oe8vv"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dbqi3"]
+curve = SubResource("Curve_oe8vv")
+
+[sub_resource type="Curve" id="Curve_qjyx1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25485438, 1), 0.0, 0.0, 0, 0, Vector2(0.7548544, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_cuakc"]
+curve = SubResource("Curve_qjyx1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6hs5k"]
+emission_shape_scale = Vector3(0.6, 0.6, 0.6)
+emission_shape = 2
+emission_sphere_radius = 1.0
+orbit_velocity_min = 0.050000098
+orbit_velocity_max = 0.1000001
+orbit_velocity_curve = SubResource("CurveTexture_dbqi3")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_cuakc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjyx1"]
+transparency = 1
+albedo_color = Color(0, 1.002, 1.348, 0.996)
+albedo_texture = ExtResource("3_oe8vv")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_cuakc"]
+material = SubResource("StandardMaterial3D_qjyx1")
+size = Vector2(0.3, 0.3)
+
+[node name="HealthPickup" type="Area3D" unique_id=767069386]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_dbqi3")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=995351396]
+shape = SubResource("SphereShape3D_8xhtj")
+
+[node name="CrossMesh" type="MeshInstance3D" parent="." unique_id=1079749124]
+mesh = SubResource("QuadMesh_qjyx1")
+
+[node name="SkinMesh" type="MeshInstance3D" parent="." unique_id=873864308]
+material_override = SubResource("ShaderMaterial_cuakc")
+mesh = SubResource("SphereMesh_6hs5k")
+
+[node name="GPUParticles" type="GPUParticles3D" parent="." unique_id=152781016]
+amount = 64
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_6hs5k")
+draw_pass_1 = SubResource("QuadMesh_cuakc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -13,7 +13,7 @@
 [sub_resource type="Resource" id="Resource_xml0i"]
 script = ExtResource("2_ox4mx")
 throwable_scene = ExtResource("3_y21nk")
-instant_explode_collision_mask = 16
+instant_explode_collision_mask = 18
 physics_collision_mask = 33
 damage_collision_mask = 16
 metadata/_custom_type_script = "uid://tfiybp3i78c0"

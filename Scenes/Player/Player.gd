@@ -2,13 +2,11 @@ class_name Player
 extends CharacterBody3D
 const GROUP_NAME: String = "Player"
 
-
 @export var speed = 5.0
 @export_range(0.0, 0.5) var deceleration: float = 0.25
 @export var jump_speed = 15
 @export var sensitivity: float = 0.0012
 @export var gravity: float = -30.0
-
 
 @onready var walking: AudioStreamPlayer3D = $Walking
 @onready var stopping: AudioStreamPlayer3D = $Stopping
@@ -22,6 +20,7 @@ const GROUP_NAME: String = "Player"
 @onready var nail_gun: WeaponBase = $Camera/NailGun
 @onready var grenade_launcher: WeaponBase = $Camera/GrenadeLauncher
 
+const DIE_SOUND = preload("res://Assets/Sounds/469567__PlayerDie.wav")
 
 enum states {
 	idle,     # 0
@@ -75,6 +74,7 @@ func _ready() -> void:
 		grenade_launcher,
 	]
 	set_weapon()
+	SignalHub.on_player_health_bonus.connect(_on_health_pickup)
 
 
 func _enter_tree() -> void:
@@ -148,6 +148,32 @@ func set_weapon():
 	if _weapon: _weapon.switch_out()
 	_weapon = _weapons[_weapon_index]
 	_weapon.switch_in()
+
+
+func _on_health_pickup(bonus: int):
+	hit_box.give_bonus(bonus)
+
+
+func _on_hit_box_died() -> void:
+	pains.stop()
+	pains.stream = DIE_SOUND
+	pains.play()
+	set_physics_process(false)
+
+
+func _on_hit_box_hit(_damage_taken: int) -> void:
+	pains.play()
+	SignalHub.emit_on_player_health_changed(hit_box.get_health())
+
+
+
+
+
+
+
+
+
+
 
 
 
