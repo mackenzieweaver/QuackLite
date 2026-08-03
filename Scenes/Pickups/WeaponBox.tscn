@@ -95,11 +95,10 @@ _data = {
 &"show": SubResource("Animation_wk010")
 }
 
-[node name="WeaponBox" type="Area3D" unique_id=967722078 node_paths=PackedStringArray("weapon")]
+[node name="WeaponBox" type="Area3D" unique_id=967722078]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_4iblp")
-weapon = NodePath("Pivot/RocketLauncher")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1376582598]
 shape = SubResource("SphereShape3D_tbdwm")

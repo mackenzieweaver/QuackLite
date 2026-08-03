@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b5ffpqm7j6bft" path="res://Scenes/Player/Player.tscn" id="3_0ccqp"]
 [ext_resource type="PackedScene" uid="uid://dn4dq4s0cep0x" path="res://Scenes/Utils/ScreenShot/ScreenShot.tscn" id="4_sw2t2"]
 [ext_resource type="PackedScene" uid="uid://u4w1u1xywbf5" path="res://Scenes/PoolContainer.tscn" id="6_14hjg"]
-[ext_resource type="PackedScene" uid="uid://cyoxtiffvhgur" path="res://Scenes/Enemies/Mutant.tscn" id="6_73shc"]
+[ext_resource type="PackedScene" uid="uid://bjo3lg6hfahu5" path="res://Scenes/Pickups/WeaponBox.tscn" id="6_73shc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ccqp"]
 sky_top_color = Color(0.2617225, 0.31775224, 0.39240915, 1)
@@ -205,5 +205,14 @@ transform = Transform3D(0.5962611, -0.53349507, 0.5998798, 0, 0.74724317, 0.6645
 [node name="Player" parent="." unique_id=101774324 instance=ExtResource("3_0ccqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Mutant" parent="." unique_id=2005262230 instance=ExtResource("6_73shc")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -10)
+[node name="WeaponBox" parent="." unique_id=967722078 instance=ExtResource("6_73shc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0978446, 0.30795312, -5.4782085)
+weapon_type = 1
+
+[node name="WeaponBox2" parent="." unique_id=2039869741 instance=ExtResource("6_73shc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5235882, 0.30795312, -5.4782085)
+weapon_type = 2
+
+[node name="WeaponBox3" parent="." unique_id=582450813 instance=ExtResource("6_73shc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.249989, 0.30795312, -5.4782085)
+weapon_type = 3

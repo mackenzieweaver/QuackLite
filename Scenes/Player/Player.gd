@@ -34,8 +34,8 @@ enum states {
 }
 
 
-var _weapons: Array[WeaponBase] = [pistol]
-var _weapon: WeaponBase = pistol
+var _weapons: Array[WeaponBase]
+var _weapon: WeaponBase
 var _weapon_index: int = 0
 var _mouse_delta: Vector2
 var _prev_state: states
@@ -72,6 +72,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	SignalHub.on_player_health_bonus.connect(_on_health_pickup)
+	
+	_weapons = [pistol]
 	set_weapon()
 
 
@@ -149,13 +151,11 @@ func set_weapon():
 
 
 func collect_weapon(weapon_type: WeaponBase.WeaponType):
+	if _weapons.has(weapon_type): return
 	match weapon_type:
-		WeaponBase.WeaponType.Grenade:
-			_weapons.append(grenade_launcher)
-		WeaponBase.WeaponType.NailGun:
-			_weapons.append(nail_gun)
-		WeaponBase.WeaponType.RocketLauncher:
-			_weapons.append(rocket_launcher)
+		WeaponBase.WeaponType.Grenade: _weapons.append(grenade_launcher)
+		WeaponBase.WeaponType.NailGun: _weapons.append(nail_gun)
+		WeaponBase.WeaponType.RocketLauncher: _weapons.append(rocket_launcher)
 	_weapon_index = _weapons.size() - 1
 	set_weapon()
 
