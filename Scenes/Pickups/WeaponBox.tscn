@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bjo3lg6hfahu5"]
+
+[ext_resource type="Script" uid="uid://doq560kshrheu" path="res://Scenes/Pickups/WeaponBox.gd" id="1_4iblp"]
+[ext_resource type="PackedScene" uid="uid://cd2ettikjhpd6" path="res://Scenes/Weapons/RocketLauncher.tscn" id="2_qs7j5"]
+[ext_resource type="PackedScene" uid="uid://btfdl5ndi48sw" path="res://Scenes/Weapons/GrenadeLauncher.tscn" id="3_gwi50"]
+[ext_resource type="PackedScene" uid="uid://c7ncsedr6ufp" path="res://Scenes/Weapons/NailGun.tscn" id="4_7vrqc"]
+[ext_resource type="PackedScene" uid="uid://c68onqhn0ldxk" path="res://Scenes/Weapons/Pistol.tscn" id="5_plhyf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tbdwm"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_skgjb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wk010"]
+resource_name = "show"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.999),
+"transitions": PackedFloat32Array(0.4999997, 2.297397),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.1, 1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnuts"]
+_data = {
+&"RESET": SubResource("Animation_skgjb"),
+&"show": SubResource("Animation_wk010")
+}
+
+[node name="WeaponBox" type="Area3D" unique_id=967722078 node_paths=PackedStringArray("weapon")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_4iblp")
+weapon = NodePath("Pivot/RocketLauncher")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1376582598]
+shape = SubResource("SphereShape3D_tbdwm")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=2066249789]
+
+[node name="RocketLauncher" parent="Pivot" unique_id=1125874832 instance=ExtResource("2_qs7j5")]
+visible = false
+
+[node name="GrenadeLauncher" parent="Pivot" unique_id=579897285 instance=ExtResource("3_gwi50")]
+visible = false
+
+[node name="NailGun" parent="Pivot" unique_id=120840858 instance=ExtResource("4_7vrqc")]
+visible = false
+
+[node name="Pistol" parent="Pivot" unique_id=58620704 instance=ExtResource("5_plhyf")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=25963406]
+libraries/ = SubResource("AnimationLibrary_dnuts")
+autoplay = &"show"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

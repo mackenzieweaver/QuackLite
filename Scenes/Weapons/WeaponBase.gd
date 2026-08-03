@@ -7,10 +7,10 @@ const EMPTY_WEAPON = preload("res://Assets/Sounds/730213__empty weapon.wav")
 
 
 enum WeaponType {
-	Grenade,
 	Pistol,
-	RocketLauncher,
 	NailGun,
+	Grenade,
+	RocketLauncher,
 }
 
 

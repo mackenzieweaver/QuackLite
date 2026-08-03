@@ -2,11 +2,13 @@ class_name Player
 extends CharacterBody3D
 const GROUP_NAME: String = "Player"
 
+
 @export var speed = 5.0
 @export_range(0.0, 0.5) var deceleration: float = 0.25
 @export var jump_speed = 15
 @export var sensitivity: float = 0.0012
 @export var gravity: float = -30.0
+
 
 @onready var walking: AudioStreamPlayer3D = $Walking
 @onready var stopping: AudioStreamPlayer3D = $Stopping
@@ -20,7 +22,9 @@ const GROUP_NAME: String = "Player"
 @onready var nail_gun: WeaponBase = $Camera/NailGun
 @onready var grenade_launcher: WeaponBase = $Camera/GrenadeLauncher
 
+
 const DIE_SOUND = preload("res://Assets/Sounds/469567__PlayerDie.wav")
+
 
 enum states {
 	idle,     # 0
@@ -30,8 +34,8 @@ enum states {
 }
 
 
-var _weapons: Array[WeaponBase]
-var _weapon: WeaponBase
+var _weapons: Array[WeaponBase] = [pistol]
+var _weapon: WeaponBase = pistol
 var _weapon_index: int = 0
 var _mouse_delta: Vector2
 var _prev_state: states
@@ -67,14 +71,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	_weapons = [
-		pistol,
-		rocket_launcher,
-		nail_gun,
-		grenade_launcher,
-	]
-	set_weapon()
 	SignalHub.on_player_health_bonus.connect(_on_health_pickup)
+	set_weapon()
 
 
 func _enter_tree() -> void:
@@ -148,6 +146,18 @@ func set_weapon():
 	if _weapon: _weapon.switch_out()
 	_weapon = _weapons[_weapon_index]
 	_weapon.switch_in()
+
+
+func collect_weapon(weapon_type: WeaponBase.WeaponType):
+	match weapon_type:
+		WeaponBase.WeaponType.Grenade:
+			_weapons.append(grenade_launcher)
+		WeaponBase.WeaponType.NailGun:
+			_weapons.append(nail_gun)
+		WeaponBase.WeaponType.RocketLauncher:
+			_weapons.append(rocket_launcher)
+	_weapon_index = _weapons.size() - 1
+	set_weapon()
 
 
 func _on_health_pickup(bonus: int):
