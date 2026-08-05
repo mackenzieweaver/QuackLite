@@ -4,3 +4,5 @@
 
 [node name="PoolContainer" type="Node3D" unique_id=662784140]
 script = ExtResource("1_vwmjg")
+
+[node name="Sounds" type="AudioStreamPlayer" parent="." unique_id=147249931]

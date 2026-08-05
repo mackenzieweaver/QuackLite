@@ -88,14 +88,17 @@ visible = false
 [node name="RocketLauncher" parent="Camera" unique_id=1251578740 instance=ExtResource("11_i5acl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.797, -1.228)
 visible = false
+weapon_type = 3
 
 [node name="NailGun" parent="Camera" unique_id=852148228 instance=ExtResource("12_epg6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.797, -1.228)
 visible = false
+weapon_type = 1
 
 [node name="GrenadeLauncher" parent="Camera" unique_id=1751263377 instance=ExtResource("13_0u84n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.797, -1.228)
 visible = false
+weapon_type = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=701888053]
 

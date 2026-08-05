@@ -160,8 +160,16 @@ func collect_weapon(weapon_type: WeaponBase.WeaponType):
 	set_weapon()
 
 
+func add_to_ammo(weapon_type: WeaponBase.WeaponType, amount: int) -> bool:
+	if !_weapons.has(weapon_type): return false
+	_weapon.add_ammo(amount)
+	return true
+
+
 func _on_health_pickup(bonus: int):
 	hit_box.give_bonus(bonus)
+	SignalHub.emit_on_player_health_changed(hit_box.get_health())
+	SignalHub.emit_on_play_sound(GameUtils.SoundType.HealthBoost)
 
 
 func _on_hit_box_died() -> void:

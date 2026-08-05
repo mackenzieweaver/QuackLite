@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://1dbcyu78riv1"]
+
+[ext_resource type="Script" uid="uid://g04ykk3fyw6j" path="res://Scenes/Pickups/AmmoBox.gd" id="1_w87p1"]
+[ext_resource type="PackedScene" uid="uid://b3fn0u0j3vixp" path="res://Assets/Models/Ammo/Bullet.glb" id="2_3pa8g"]
+[ext_resource type="PackedScene" uid="uid://bb5gnxhu0fqmu" path="res://Assets/Models/Ammo/Grenade.glb" id="3_cp4lx"]
+[ext_resource type="PackedScene" uid="uid://bxrwsmwp2bam8" path="res://Assets/Models/Ammo/Rocket.glb" id="4_kf43l"]
+[ext_resource type="PackedScene" uid="uid://csfet58nuak07" path="res://Scenes/Weapons/Projectiles/ProjectileNail.tscn" id="5_lanep"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tbdwm"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_skgjb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wk010"]
+resource_name = "show"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.999),
+"transitions": PackedFloat32Array(0.4999997, 2.297397),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.1, 1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnuts"]
+_data = {
+&"RESET": SubResource("Animation_skgjb"),
+&"show": SubResource("Animation_wk010")
+}
+
+[node name="AmmoBox" type="Area3D" unique_id=967722078]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_w87p1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1376582598]
+shape = SubResource("SphereShape3D_tbdwm")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=2066249789]
+
+[node name="Bullets" type="Node3D" parent="Pivot" unique_id=896644590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.20473349)
+visible = false
+
+[node name="Bullet" parent="Pivot/Bullets" unique_id=908565516 instance=ExtResource("2_3pa8g")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Bullet2" parent="Pivot/Bullets" unique_id=548611770 instance=ExtResource("2_3pa8g")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.20620361)
+
+[node name="Bullet3" parent="Pivot/Bullets" unique_id=841622025 instance=ExtResource("2_3pa8g")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.40920594)
+
+[node name="Grenades" type="Node3D" parent="Pivot" unique_id=1710137464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.103182435)
+visible = false
+
+[node name="Grenade" parent="Pivot/Grenades" unique_id=1340620590 instance=ExtResource("3_cp4lx")]
+
+[node name="Grenade2" parent="Pivot/Grenades" unique_id=78454678 instance=ExtResource("3_cp4lx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1154511)
+
+[node name="Grenade3" parent="Pivot/Grenades" unique_id=1398237565 instance=ExtResource("3_cp4lx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.23806584)
+
+[node name="Rockets" type="Node3D" parent="Pivot" unique_id=1238056416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.115501106)
+visible = false
+
+[node name="Rocket" parent="Pivot/Rockets" unique_id=884537454 instance=ExtResource("4_kf43l")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Rocket2" parent="Pivot/Rockets" unique_id=224970377 instance=ExtResource("4_kf43l")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.110382974)
+
+[node name="Rocket3" parent="Pivot/Rockets" unique_id=222670111 instance=ExtResource("4_kf43l")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.21881972)
+
+[node name="Nails" type="Node3D" parent="Pivot" unique_id=2073126311]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0.16393673)
+visible = false
+
+[node name="ProjectileNail" parent="Pivot/Nails" unique_id=807251885 instance=ExtResource("5_lanep")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+
+[node name="ProjectileNail2" parent="Pivot/Nails" unique_id=1917602999 instance=ExtResource("5_lanep")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, -0.11425268)
+
+[node name="ProjectileNail3" parent="Pivot/Nails" unique_id=2003751383 instance=ExtResource("5_lanep")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, -0.05725847)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=25963406]
+libraries/ = SubResource("AnimationLibrary_dnuts")
+autoplay = &"show"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

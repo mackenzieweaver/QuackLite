@@ -135,7 +135,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r5mrc")
 
 [node name="GrenadeLauncher" unique_id=1125874832 instance=ExtResource("1_e3hbu")]
-weapon_type = 0
+weapon_type = 2
 fire_behavior = SubResource("Resource_8u70o")
 fire_rate_msec = 1000
 start_ammo = 10

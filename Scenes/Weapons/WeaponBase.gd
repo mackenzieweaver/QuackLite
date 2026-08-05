@@ -79,7 +79,9 @@ func switch_out():
 	hide()
 
 
-
+func add_ammo(amount: int):
+	_ammo = clampi(_ammo + amount, 0, max_ammo)
+	SignalHub.emit_on_ammo_updated(weapon_type, _ammo)
 
 
 
