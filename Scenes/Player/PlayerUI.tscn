@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://xjwhd0mav5fr" path="res://Scenes/Player/PlayerUI.gd" id="1_fhr5y"]
 [ext_resource type="Texture2D" uid="uid://c5420qjprcxae" path="res://Assets/Images/Crosshair.png" id="1_g35qq"]
 [ext_resource type="Texture2D" uid="uid://bed4mpd0g3bty" path="res://Assets/Textures/Dot.png" id="3_ruvwe"]
+[ext_resource type="Texture2D" uid="uid://d1a56jogntr44" path="res://Assets/Ui/Panel/panel-000.png" id="4_27bup"]
+[ext_resource type="Texture2D" uid="uid://dnqxan1okctdp" path="res://Assets/Images/QuakeGuy/QuakeGuy64Face.png" id="4_ruvwe"]
+[ext_resource type="Script" uid="uid://dnlwjpv6nq7yl" path="res://Scenes/Player/Health.gd" id="5_gvfdd"]
+[ext_resource type="LabelSettings" uid="uid://dc0qbjbt85100" path="res://Resources/TextLabel.tres" id="6_gvfdd"]
+[ext_resource type="Texture2D" uid="uid://3gbt5q7ol8ar" path="res://Assets/Images/Pistol.png" id="7_p4cyq"]
+[ext_resource type="Script" uid="uid://bsv4sdrd5crgd" path="res://Scenes/Player/WeaponAmmoUI.gd" id="8_2t65e"]
+[ext_resource type="Texture2D" uid="uid://hddtp5msu6rs" path="res://Assets/Images/NailGun.png" id="9_7xpsu"]
+[ext_resource type="Texture2D" uid="uid://bqo6hdt3yyfdb" path="res://Assets/Images/GrenadeLauncher.png" id="10_2t65e"]
+[ext_resource type="Texture2D" uid="uid://bhjur5vxxlntm" path="res://Assets/Images/RocketLauncher.png" id="11_4wubt"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b22dx"]
 particle_flag_disable_z = true
@@ -50,3 +59,123 @@ lifetime = 0.2
 one_shot = true
 explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_b22dx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1160240317]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -403.0
+offset_top = -140.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=359777486]
+self_modulate = Color(0.11856222, 0.11856222, 0.11856222, 1)
+layout_mode = 2
+texture = ExtResource("4_27bup")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=380648443]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Health" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1206397951]
+layout_mode = 2
+alignment = 1
+script = ExtResource("5_gvfdd")
+
+[node name="Image" type="TextureRect" parent="MarginContainer/HBoxContainer/Health" unique_id=1605784117]
+layout_mode = 2
+texture = ExtResource("4_ruvwe")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Health" unique_id=1690835014]
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("6_gvfdd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weapons" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=295220530]
+layout_mode = 2
+alignment = 1
+
+[node name="Pistol" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Weapons" unique_id=1300009615]
+layout_mode = 2
+alignment = 1
+script = ExtResource("8_2t65e")
+
+[node name="Image" type="TextureRect" parent="MarginContainer/HBoxContainer/Weapons/Pistol" unique_id=1960175345]
+layout_mode = 2
+texture = ExtResource("7_p4cyq")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Weapons/Pistol" unique_id=1488771326]
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("6_gvfdd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NailGun" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Weapons" unique_id=136276658]
+layout_mode = 2
+alignment = 1
+script = ExtResource("8_2t65e")
+weapon_type = 1
+
+[node name="Image" type="TextureRect" parent="MarginContainer/HBoxContainer/Weapons/NailGun" unique_id=1360229265]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("9_7xpsu")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Weapons/NailGun" unique_id=1689471843]
+visible = false
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("6_gvfdd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GrenadeLauncher" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Weapons" unique_id=939105827]
+layout_mode = 2
+alignment = 1
+script = ExtResource("8_2t65e")
+weapon_type = 2
+
+[node name="Image" type="TextureRect" parent="MarginContainer/HBoxContainer/Weapons/GrenadeLauncher" unique_id=1788037836]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("10_2t65e")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Weapons/GrenadeLauncher" unique_id=795587699]
+visible = false
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("6_gvfdd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RocketLauncher" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Weapons" unique_id=1363325329]
+layout_mode = 2
+alignment = 1
+script = ExtResource("8_2t65e")
+weapon_type = 3
+
+[node name="Image" type="TextureRect" parent="MarginContainer/HBoxContainer/Weapons/RocketLauncher" unique_id=542513811]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("11_4wubt")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Weapons/RocketLauncher" unique_id=912054692]
+visible = false
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("6_gvfdd")
+horizontal_alignment = 1
+vertical_alignment = 1

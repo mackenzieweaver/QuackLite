@@ -53,26 +53,26 @@ func fire():
 	
 	_ammo -= 1
 	_last_fire_msec = Time.get_ticks_msec()
+	SignalHub.emit_on_ammo_updated(weapon_type, _ammo)
 
 
 func switch_in():
 	_swapping = true
 	
-	
 	show()
 	activate_sound.stream = WEAPON_SWAP
 	activate_sound.play()
-	
 	
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "rotation_degrees", Vector3(360, 0, 0), 0.3)
+	
 	await get_tree().create_timer(0.4, false).timeout
 	rotation_degrees = Vector3.ZERO
-	
-	
 	_swapping = false
+	
+	SignalHub.emit_on_ammo_updated(weapon_type, _ammo)
 
 
 func switch_out():

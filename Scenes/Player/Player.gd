@@ -152,10 +152,15 @@ func set_weapon():
 
 func collect_weapon(weapon_type: WeaponBase.WeaponType):
 	if _weapons.has(weapon_type): return
+	
+	var weap: WeaponBase
 	match weapon_type:
-		WeaponBase.WeaponType.Grenade: _weapons.append(grenade_launcher)
-		WeaponBase.WeaponType.NailGun: _weapons.append(nail_gun)
-		WeaponBase.WeaponType.RocketLauncher: _weapons.append(rocket_launcher)
+		WeaponBase.WeaponType.Grenade: weap = grenade_launcher
+		WeaponBase.WeaponType.NailGun: weap = nail_gun
+		WeaponBase.WeaponType.RocketLauncher: weap = rocket_launcher
+	
+	_weapons.append(weap)
+	SignalHub.on_weapon_pickup.emit(weapon_type)
 	_weapon_index = _weapons.size() - 1
 	set_weapon()
 
