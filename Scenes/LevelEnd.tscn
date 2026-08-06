@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c5mk8nloyuhql"]
+
+[ext_resource type="Shader" uid="uid://d0io8dgr2is2i" path="res://Scenes/LevelEnd.tres" id="1_e0k6l"]
+[ext_resource type="Script" uid="uid://cpwrdlwf1n2fj" path="res://Scenes/LevelEnd.gd" id="1_omcnl"]
+[ext_resource type="FontFile" uid="uid://crhkbsfsdn0fo" path="res://Assets/Fonts/NovaSquare-Regular.ttf" id="2_omcnl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qiwo"]
+size = Vector3(3.9969482, 6.0132446, 0.13366699)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b40w7"]
+render_priority = 0
+shader = ExtResource("1_e0k6l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s7wau"]
+material = SubResource("ShaderMaterial_b40w7")
+size = Vector2(4, 6)
+
+[node name="LevelEnd" type="Node3D" unique_id=349517977]
+script = ExtResource("1_omcnl")
+
+[node name="StaticBody" type="StaticBody3D" parent="." unique_id=1781284269]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody" unique_id=9301276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008728027, -0.004547119, -0.022399902)
+shape = SubResource("BoxShape3D_1qiwo")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1669867339]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Area3D" unique_id=1865633932]
+shape = SubResource("BoxShape3D_1qiwo")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=207444618]
+transform = Transform3D(0.99999994, 0, 0, 0, -4.371138e-08, -0.9999999, 0, 0.9999998, -4.3711385e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_s7wau")
+
+[node name="Label" type="Label3D" parent="." unique_id=1524330356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15891027, 0)
+font = ExtResource("2_omcnl")
+font_size = 128
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
