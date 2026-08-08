@@ -178,9 +178,15 @@ func _on_health_pickup(bonus: int):
 
 
 func _on_hit_box_died() -> void:
+	walking.stop()
+	stopping.stop()
+	jumping.stop()
+	landing.stop()
+	
 	pains.stop()
 	pains.stream = DIE_SOUND
 	pains.play()
+	
 	set_physics_process(false)
 
 
