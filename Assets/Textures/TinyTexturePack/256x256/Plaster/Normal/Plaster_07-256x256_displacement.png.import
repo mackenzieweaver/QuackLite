@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nhtrisffnlpt"
-path.s3tc="res://.godot/imported/Plaster_09-256x256.png-ed384a67e9e1953d6deb5f32cdfa0be4.s3tc.ctex"
+uid="uid://clmwx6c8x11vi"
+path="res://.godot/imported/Plaster_07-256x256_displacement.png-69ab92d5b059ae9bd25999f43ae5645c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/TinyTexturePack/256x256/Plaster/Plaster_09-256x256.png"
-dest_files=["res://.godot/imported/Plaster_09-256x256.png-ed384a67e9e1953d6deb5f32cdfa0be4.s3tc.ctex"]
+source_file="res://Assets/Textures/TinyTexturePack/256x256/Plaster/Normal/Plaster_07-256x256_displacement.png"
+dest_files=["res://.godot/imported/Plaster_07-256x256_displacement.png-69ab92d5b059ae9bd25999f43ae5645c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ccoqlebhag7c8"]
+
+[ext_resource type="Texture2D" uid="uid://dxqixkr5cl0g3" path="res://Assets/Textures/TinyTexturePack/256x256/Dirt/Dirt_09-256x256.png" id="1_qp0lg"]
+[ext_resource type="Texture2D" uid="uid://bv1cu8e73nj17" path="res://Assets/Textures/TinyTexturePack/256x256/Dirt/Dirt_09_Normal/Dirt_09-256x256_specular(1).png" id="2_juhho"]
+[ext_resource type="Texture2D" uid="uid://b4kt5cccsyb4m" path="res://Assets/Textures/TinyTexturePack/256x256/Dirt/Dirt_09_Normal/Dirt_09-256x256_normal.png" id="3_ewksd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_illem"]
+cull_mode = 2
+albedo_texture = ExtResource("1_qp0lg")
+metallic = 1.0
+metallic_texture = ExtResource("2_juhho")
+normal_enabled = true
+normal_texture = ExtResource("3_ewksd")
+uv1_scale = Vector3(4, 4, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7owh3"]
+material = SubResource("StandardMaterial3D_illem")
+size = Vector2(4, 4)
+orientation = 1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qp0lg"]
+points = PackedVector3Array(-2, 0, -2, -2, 0, 2, 2, 0, -2, 2, 0, 2)
+
+[node name="WallPiece" type="Node3D" unique_id=571073358]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1693715750]
+mesh = SubResource("QuadMesh_7owh3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1096299592]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=713078604]
+shape = SubResource("ConvexPolygonShape3D_qp0lg")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://p4dam0xl5k54"]
+
+[ext_resource type="Texture2D" uid="uid://dd4jtnnb1q0w8" path="res://Assets/Textures/TinyTexturePack/256x256/Brick/Brick_12-256x256.png" id="1_2rbg8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax4i0"]
+albedo_texture = ExtResource("1_2rbg8")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_komrv"]
+material = SubResource("StandardMaterial3D_ax4i0")
+size = Vector3(1, 6, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5tirl"]
+points = PackedVector3Array(-0.5, -3, -0.5, -0.5, -3, 0.5, -0.5, 3, -0.5, 0.5, -3, -0.5, 0.5, -3, 0.5, -0.5, 3, 0.5, 0.5, 3, -0.5, 0.5, 3, 0.5)
+
+[node name="PillarPiece" type="Node3D" unique_id=1321284266]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=824526778]
+mesh = SubResource("BoxMesh_komrv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1460631747]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=539840391]
+shape = SubResource("ConvexPolygonShape3D_5tirl")
