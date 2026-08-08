@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://de8gyhklyse2l"]
 
-[ext_resource type="Texture2D" uid="uid://faff1yhahtjk" path="res://Assets/Textures/PrototypeTextures/dark.png" id="1_lsk1p"]
-[ext_resource type="Texture2D" uid="uid://c4vp7eulu0e7t" path="res://Assets/Textures/PrototypeTextures/water.png" id="2_k50av"]
-[ext_resource type="PackedScene" uid="uid://b5ffpqm7j6bft" path="res://Scenes/Player/Player.tscn" id="3_0ccqp"]
-[ext_resource type="PackedScene" uid="uid://dn4dq4s0cep0x" path="res://Scenes/Utils/ScreenShot/ScreenShot.tscn" id="4_sw2t2"]
-[ext_resource type="PackedScene" uid="uid://u4w1u1xywbf5" path="res://Scenes/PoolContainer.tscn" id="6_14hjg"]
-[ext_resource type="PackedScene" uid="uid://bjo3lg6hfahu5" path="res://Scenes/Pickups/WeaponBox.tscn" id="6_73shc"]
+[ext_resource type="Texture2D" uid="uid://faff1yhahtjk" path="res://Assets/Textures/PrototypeTextures/dark.png" id="1_hs1ct"]
+[ext_resource type="Texture2D" uid="uid://c4vp7eulu0e7t" path="res://Assets/Textures/PrototypeTextures/water.png" id="2_urnea"]
+[ext_resource type="PackedScene" uid="uid://dn4dq4s0cep0x" path="res://Scenes/Utils/ScreenShot/ScreenShot.tscn" id="3_q7hab"]
+[ext_resource type="PackedScene" uid="uid://u4w1u1xywbf5" path="res://Scenes/PoolContainer.tscn" id="4_u5efd"]
+[ext_resource type="PackedScene" uid="uid://b5ffpqm7j6bft" path="res://Scenes/Player/Player.tscn" id="5_810jc"]
+[ext_resource type="PackedScene" uid="uid://bjo3lg6hfahu5" path="res://Scenes/Pickups/WeaponBox.tscn" id="6_l4osv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ccqp"]
 sky_top_color = Color(0.2617225, 0.31775224, 0.39240915, 1)
@@ -30,7 +30,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(0, 3, 2), PackedInt32Arr
 agent_radius = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k50av"]
-albedo_texture = ExtResource("1_lsk1p")
+albedo_texture = ExtResource("1_hs1ct")
 uv1_scale = Vector3(100, 100, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0ccqp"]
@@ -41,7 +41,7 @@ size = Vector3(100, 0.2, 100)
 points = PackedVector3Array(-50, -0.1, -50, -50, 0.1, -50, 50, -0.1, -50, -50, -0.1, 50, -50, 0.1, 50, 50, 0.1, -50, 50, -0.1, 50, 50, 0.1, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ccqp"]
-albedo_texture = ExtResource("2_k50av")
+albedo_texture = ExtResource("2_urnea")
 uv1_scale = Vector3(6, 3, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sw2t2"]
@@ -198,21 +198,21 @@ shape = SubResource("ConvexPolygonShape3D_mosbd")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=666298902]
 transform = Transform3D(0.5962611, -0.53349507, 0.5998798, 0, 0.74724317, 0.6645507, -0.8027906, -0.39624575, 0.44555202, 10.372815, 10.413723, 22.725151)
 
-[node name="ScreenShot" parent="." unique_id=284483013 instance=ExtResource("4_sw2t2")]
+[node name="ScreenShot" parent="." unique_id=284483013 instance=ExtResource("3_q7hab")]
 
-[node name="PoolContainer" parent="." unique_id=662784140 instance=ExtResource("6_14hjg")]
+[node name="PoolContainer" parent="." unique_id=662784140 instance=ExtResource("4_u5efd")]
 
-[node name="Player" parent="." unique_id=101774324 instance=ExtResource("3_0ccqp")]
+[node name="Player" parent="." unique_id=101774324 instance=ExtResource("5_810jc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="WeaponBox" parent="." unique_id=967722078 instance=ExtResource("6_73shc")]
+[node name="WeaponBox" parent="." unique_id=967722078 instance=ExtResource("6_l4osv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0978446, 0.30795312, -5.4782085)
 weapon_type = 1
 
-[node name="WeaponBox2" parent="." unique_id=2039869741 instance=ExtResource("6_73shc")]
+[node name="WeaponBox2" parent="." unique_id=2039869741 instance=ExtResource("6_l4osv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5235882, 0.30795312, -5.4782085)
 weapon_type = 2
 
-[node name="WeaponBox3" parent="." unique_id=582450813 instance=ExtResource("6_73shc")]
+[node name="WeaponBox3" parent="." unique_id=582450813 instance=ExtResource("6_l4osv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.249989, 0.30795312, -5.4782085)
 weapon_type = 3
