@@ -23,9 +23,11 @@ points = PackedVector3Array(-2, -3, 0, 2, -3, 0, -2, 3, 0, 2, 3, 0)
 [node name="WallPiece" type="Node3D" unique_id=571073358]
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1693715750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 mesh = SubResource("QuadMesh_oumy6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1096299592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=408870623]
 shape = SubResource("ConvexPolygonShape3D_o8he5")

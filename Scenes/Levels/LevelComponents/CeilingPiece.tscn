@@ -21,7 +21,7 @@ orientation = 1
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qp0lg"]
 points = PackedVector3Array(-2, 0, -2, -2, 0, 2, 2, 0, -2, 2, 0, 2)
 
-[node name="WallPiece" type="Node3D" unique_id=571073358]
+[node name="CeilingPiece" type="Node3D" unique_id=571073358]
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1693715750]
 mesh = SubResource("QuadMesh_a2tqc")

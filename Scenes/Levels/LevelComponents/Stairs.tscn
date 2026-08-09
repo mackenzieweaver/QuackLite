@@ -17,9 +17,11 @@ points = PackedVector3Array(-4, 3, 2, 4, -3, 2, -4, 3, -2, -4, -3, 2, 4, -3, -2,
 [node name="Stairs" type="Node3D" unique_id=1768431506]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=625029327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 mesh = SubResource("PrismMesh_cmhqj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=510385323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1598692258]
 shape = SubResource("ConvexPolygonShape3D_07bum")
