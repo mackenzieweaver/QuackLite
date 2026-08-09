@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dn4dq4s0cep0x" path="res://Scenes/Utils/ScreenShot/ScreenShot.tscn" id="4_3ipdw"]
 [ext_resource type="PackedScene" uid="uid://dm1mhv0th45am" path="res://Scenes/Levels/LevelComponents/WallPiece.tscn" id="5_kri6y"]
 [ext_resource type="PackedScene" uid="uid://dlhtr4kuks7cu" path="res://Scenes/Lava.tscn" id="6_4d3fe"]
+[ext_resource type="PackedScene" uid="uid://c1i68vh0jry4t" path="res://Scenes/Levels/LevelComponents/Lift.tscn" id="8_8h4de"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36ke7"]
 panorama = ExtResource("1_5jgm0")
@@ -238,3 +239,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -2, 12)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -2, 12)
 
 [node name="Other" type="Node" parent="Scenary" unique_id=1237975092]
+
+[node name="Lift" parent="Scenary/Other" unique_id=1869232355 instance=ExtResource("8_8h4de")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.557468, -1.9073486e-06, 7.5989323)
+top_y = 6.0
+wait_min = 3.0
+wait_max = 5.0

@@ -64,19 +64,15 @@ func walk():
 func can_walk() -> bool:
 	return check_distance(enemy.walk_distance)
 
-
+# Melee
 func melee():
 	_can_change_state = false
 	_state = states.melee
 	_melee_on_cooldown = true
 	var timer = enemy.get_tree().create_timer(2)
 	timer.timeout.connect(on_melee_cooldown)
-
-
 func on_melee_cooldown():
 	_melee_on_cooldown = false
-
-
 func can_melee() -> bool:
 	var has_melee_state = states['melee'] is EnemyStateMelee
 	var close_enough = check_distance(enemy.melee_distance)
@@ -84,18 +80,15 @@ func can_melee() -> bool:
 	return has_melee_state and close_enough and off_cooldown
 
 
+# Shoot
 func shoot():
 	_can_change_state = false
 	_state = states.shoot
 	_shoot_on_cooldown = true
 	var timer = enemy.get_tree().create_timer(5)
 	timer.timeout.connect(on_shoot_cooldown)
-
-
 func on_shoot_cooldown():
 	_shoot_on_cooldown = false
-
-
 func can_shoot() -> bool:
 	var not_too_close = enemy.player_ref.player_greater_than_distance(enemy.global_position, 5)
 	var close_enough = check_distance(enemy.shoot_distance)
